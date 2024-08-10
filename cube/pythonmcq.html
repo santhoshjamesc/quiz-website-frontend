@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+
+<button id="bb" onclick="location.href='text.html'">back</button>
+<head><head><div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div></head> </head>
+<title>question</title>
+<body>
+    
+  <style>@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+#bb {
+  margin-left: -80%;
+  width: 150px;
+}
+
+h5{
+  color: #fff;
+  font-size: 30px;
+}
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .progress-container {
+  width: 100%;
+ 
+}
+.quiz-container
+{
+margin-left: 15%;
+
+
+}
+.progress-bar {
+  width: 0;
+  height: 40px;
+  background-color: #ffffff;
+  transition: width 1.2s;
+}
+    .answer{
+        height: 30px;
+        width: 30px;
+    }
+    body {
+    
+       
+      background-color: #000000;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+   
+    
+   
+    
+    h2 {
+    
+      padding-bottom: 0.5rem;
+      margin-left: 1%;
+      color: #fff;
+      font-size: 50px;
+    }
+    
+    ul {
+        
+      list-style-type: none;
+      padding: 0;
+      margin-left: 1rem;
+    }
+    
+    ul li {
+      font-size: 2.6rem;
+      color: #ffffff;
+      margin-top: 0.8rem;
+    }
+    
+    ul li label {
+      cursor: pointer;
+    }
+    
+    button {
+      background-color: #000000;
+      color: #fff;
+      border: 2px solid rgb(255, 255, 255);
+      display: block;
+      width: 30%;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-family: inherit;
+      padding: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-left: 25%;
+    }
+    
+    button:hover {
+      background-color: #ffffff;
+      color: rgb(0, 0, 0);
+    }
+    
+    button:focus {
+      outline: none;
+      background-color: #ffffff;
+    }
+   
+    /* =========================
+              Watermark
+    ========================= */
+   
+    .generate-button {
+      --generate-button-star-1-opacity: 0.25;
+      --generate-button-star-1-scale: 1;
+      --generate-button-star-2-opacity: 1;
+      --generate-button-star-2-scale: 1;
+      --generate-button-star-3-opacity: 0.5;
+      --generate-button-star-3-scale: 1;
+      --generate-button-dots-opacity: 0;
+      appearance: none;
+      outline: none;
+      border: none;
+      padding: 14px 24px 14px 20px;
+      border-radius: 29px;
+      margin: 0;
+      background-color: #222222;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      z-index: 1;
+      transform: scale(var(--generate-button-scale, 1)) translateZ(0);
+      box-shadow: 0px 0px 120px var(--generate-button-shadow-wide, transparent),
+        0px 4px 12px rgba(0, 0, 0, 0.05), 0px 1px 2px rgba(0, 0, 0, 0.1),
+        inset 0px 1px 1px
+          var(--generate-button-shadow-inset, rgba(255, 255, 255, 0.04)),
+        0 0 0 var(--generate-button-shadow-outline, 0px) rgba(109, 68, 244, 0.4);
+      transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s, color 0.3s;
+    }
+    .generate-button:before {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 20%;
+      height: 20px;
+      left: 20%;
+      bottom: -10px;
+      background: rgb(168, 109, 255);
+      filter: blur(12.5px);
+      z-index: 2;
+      clip-path: inset(-200% -30% 10px -30% round 29px);
+      opacity: 0;
+      transition: opacity 0.4s;
+      transform: translateZ(0);
+    }
+    .generate-button span {
+      position: relative;
+      z-index: 1;
+      font-family: "Poppins", Arial;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 0.005em;
+      display: block;
+    }
+    .generate-button span:before {
+      content: "";
+      background-image: linear-gradient(to right, transparent, #1d1d1d);
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.4;
+      transition: opacity 0.4s;
+    }
+    .generate-button .stroke {
+      mix-blend-mode: hard-light;
+    }
+    .generate-button .stroke svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke-width: 0.75px;
+      stroke: #e2d9ff;
+      stroke-dasharray: 1.5 14;
+      stroke-dashoffset: 22;
+      opacity: 0;
+    }
+    .generate-button .stroke svg:nth-child(2) {
+      stroke-width: 1px;
+      stroke-opacity: 0.5;
+      filter: blur(3px);
+    }
+    .generate-button svg {
+      display: block;
+      overflow: visible;
+      pointer-events: none;
+    }
+    .generate-button svg.dots {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      fill: #d3b2ff;
+      opacity: var(--generate-button-dots-opacity);
+    }
+    .generate-button svg.icon {
+      width: 18px;
+      height: 20px;
+      margin-right: 10px;
+      fill: currentColor;
+    }
+    .generate-button svg.icon path:nth-child(1) {
+      opacity: var(--generate-button-star-1-opacity);
+      transform: scale(var(--generate-button-star-1-scale)) translateZ(0);
+      transform-origin: 25% 14.58%;
+    }
+    .generate-button svg.icon path:nth-child(2) {
+      opacity: var(--generate-button-star-2-opacity);
+      transform: scale(var(--generate-button-star-2-scale)) translateZ(0);
+      transform-origin: 60.42% 50%;
+    }
+    .generate-button svg.icon path:nth-child(3) {
+      opacity: var(--generate-button-star-3-opacity);
+      transform: scale(var(--generate-button-star-3-scale)) translateZ(0);
+      transform-origin: 25% 85.42%;
+    }
+    .generate-button:hover {
+      --generate-button-scale: 1.01;
+      --generate-button-shadow-wide: rgba(208, 173, 255, 0.4);
+      --generate-button-shadow-inset: rgba(255, 255, 255, 0.35);
+      --generate-button-shadow-outline: 3px;
+      color: #fff;
+      background-color: #6d44f4;
+    }
+    .generate-button:hover .stroke svg {
+      animation: stroke 2s linear infinite;
+    }
+    .generate-button:hover:before {
+      opacity: 1;
+    }
+    .generate-button:hover span:before {
+      opacity: 0;
+    }
+    .generate-button:hover:active {
+      --generate-button-scale: 1.05;
+    }
+    @keyframes stroke {
+      0% {
+        opacity: 0;
+      }
+      25%,
+      75% {
+        opacity: 1;
+      }
+      95%,
+      100% {
+        stroke-dashoffset: 6;
+        opacity: 0;
+      }
+    }
+    </style>
+
+    <br><fieldset>
+<div class="quiz-container" id="quiz">
+    
+  <div class="quiz-header">
+    <br><br><br><br><br><br>
+    <h2 id="question">Question text</h2>
+    <br><br><br><br><br><br>
+    <ul>
+      <li>
+        <input type="radio" name="answer" id="a" class="answer" />
+        <label for="a" id="a_text">Question</label>
+      </li>
+
+      <li>
+        <input type="radio" name="answer" id="b" class="answer" />
+        <label for="b" id="b_text">Question</label>
+      </li>
+
+      <li>
+        <input type="radio" name="answer" id="c" class="answer" />
+        <label for="c" id="c_text">Question</label>
+      </li>
+
+      <li>
+        <input type="radio" name="answer" id="d" class="answer" />
+        <label for="d" id="d_text">Question</label>
+      </li>
+    </ul>
+  </div><br><br><br><br><br>
+  <button id="submit">Submit</button><br><br><br><br><br><br>
+  </div>
+</div>
+</fieldset>
+<!-- =========================
+          Watermark
+========================= -->
+<script>
+const quizData = [
+{
+question: "What is Python?",
+a: "A snake",
+b: "A type of programming language",
+c: "A computer hardware component",
+d: "A video game",
+correct: "b"
+},
+
+{
+question: "How do you print 'Hello, World!' in Python?",
+a: "console.log('Hello, World!')",
+b: "print('Hello, World!')",
+c: "echo 'Hello, World!'",
+d: "System.out.println('Hello, World!')",
+correct: "b"
+},
+
+{
+question: "What is the result of 5 + 3 in Python?",
+a: "53",
+b: "8",
+c: "35",
+d: "Error",
+correct: "b"
+},
+
+{
+question: "What is a Python function?",
+a: "A data type",
+b: "A reusable block of code",
+c: "A loop",
+d: "A comment",
+correct: "b"
+},
+
+{
+question: "How do you comment out a single line in Python?",
+a: "// This is a comment",
+b: "# This is a comment",
+c: "/* This is a comment */",
+d: "-- This is a comment",
+correct: "b"
+},
+
+{
+question: "What is the output of 'Hello'[1] in Python?",
+a: "H",
+b: "e",
+c: "l",
+d: "o",
+correct: "b"
+},
+
+{
+question: "How do you declare a variable in Python?",
+a: "var x",
+b: "x = 5",
+c: "int x",
+d: "$x = 5",
+correct: "b"
+},
+
+{
+question: "What does 'len('Python')' return?",
+a: "6",
+b: "5",
+c: "7",
+d: "Error",
+correct: "a"
+},
+
+{
+question: "What is the Python keyword for defining a function?",
+a: "func",
+b: "define",
+c: "function",
+d: "def",
+correct: "d"
+},
+
+{
+question: "What is the result of '5 == 5' in Python?",
+a: "True",
+b: "False",
+c: "Error",
+d: "None",
+correct: "a"
+},
+
+{
+question: "What data type is '3.14' in Python?",
+a: "String",
+b: "Integer",
+c: "Float",
+d: "Boolean",
+correct: "c"
+},
+
+{
+question: "How do you create a list in Python?",
+a: "list = [1, 2, 3]",
+b: "array(1, 2, 3)",
+c: "{1, 2, 3}",
+d: "(1, 2, 3)",
+correct: "a"
+},
+
+{
+question: "What is the result of '3 * 'Python'' in Python?",
+a: "PythonPythonPython",
+b: "33",
+c: "TypeError",
+d: "Error",
+correct: "a"
+},
+
+{
+question: "How do you open a file in Python?",
+a: "file.open('filename')",
+b: "open('filename')",
+c: "read('filename')",
+d: "file('filename')",
+correct: "b"
+},
+
+{
+question: "What is the output of 'print(list(range(5)))' in Python?",
+a: "[0, 1, 2, 3, 4]",
+b: "0 1 2 3 4",
+c: "1 2 3 4 5",
+d: "Error",
+correct: "a"
+},
+
+{
+question: "What is the Python keyword for defining a class?",
+a: "class",
+b: "define",
+c: "struct",
+d: "type",
+correct: "a"
+},
+
+{
+question: "What is the result of '5 / 2' in Python?",
+a: "2.5",
+b: "2",
+c: "2.0",
+d: "Error",
+correct: "a"
+},
+
+{
+question: "What is the Python keyword for creating a conditional statement?",
+a: "switch",
+b: "if",
+c: "case",
+d: "conditional",
+correct: "b"
+},
+
+{
+question: "How do you exit a loop in Python?",
+a: "break",
+b: "exit",
+c: "quit",
+d: "stop",
+correct: "a"
+},
+
+{
+question: "What is the result of '5 % 2' in Python?",
+a: "2.5",
+b: "2",
+c: "1",
+d: "Error",
+correct: "c"
+},
+
+{
+question: "How do you define a dictionary in Python?",
+a: "dict(1: 'one', 2: 'two')",
+b: "{'1': 'one', '2': 'two'}",
+c: "dictionary[1: 'one', 2: 'two']",
+d: "['1': 'one', '2': 'two']",
+correct: "b"
+}
+,
+{
+question: "What is the result of 'True and False' in Python?",
+a: "True",
+b: "False",
+c: "Error",
+d: "None",
+correct: "b"
+},
+
+{
+question: "How do you define a tuple in Python?",
+a: "tuple(1, 2, 3)",
+b: "(1, 2, 3)",
+c: "[1, 2, 3]",
+d: "{1, 2, 3}",
+correct: "b"
+}
+,
+{
+question: "What is the Python keyword for creating a loop?",
+a: "loop",
+b: "repeat",
+c: "for",
+d: "while",
+correct: "c"
+}
+,
+{
+question: "What is the result of '2 ** 3' in Python?",
+a: "6",
+b: "8",
+c: "16",
+d: "Error",
+correct: "b"
+},
+
+{
+question: "How do you remove an item from a list in Python?",
+a: "list.remove(item)",
+b: "list.pop(index)",
+c: "list.delete(index)",
+d: "list.clear()",
+correct: "b"
+},
+
+{
+question: "What is the output of 'print('Hello' + ' ' + 'World')' in Python?",
+a: "Hello World",
+b: "HelloWorld",
+c: "Hello + World",
+d: "Error",
+correct: "a"
+},
+
+{
+question: "How do you define a set in Python?",
+a: "set(1, 2, 3)",
+b: "{1, 2, 3}",
+c: "[1, 2, 3]",
+d: "(1, 2, 3)",
+correct: "b"
+},
+
+{
+question: "What is the result of '5 < 3' in Python?",
+a: "True",
+b: "False",
+c: "Error",
+d: "None",
+correct: "b"
+},
+
+{
+question: "How do you round the number 3.14 to the nearest whole number in Python?",
+a: "round(3.14)",
+b: "ceil(3.14)",
+c: "floor(3.14)",
+d: "int(3.14)",
+correct: "a"
+},
+
+
+  ];
+  
+  const quiz = document.getElementById("quiz");
+  const answerEls = document.querySelectorAll(".answer");
+  const questionEl = document.getElementById("question");
+  const a_text = document.getElementById("a_text");
+  const b_text = document.getElementById("b_text");
+  const c_text = document.getElementById("c_text");
+  const d_text = document.getElementById("d_text");
+  const submitBtn = document.getElementById("submit");
+  
+  let currentQuiz = 0;
+  let score = 0;
+  
+  loadQuiz();
+  
+  function loadQuiz() {
+    deselectAnswers();
+  
+    const currentQuizData = quizData[currentQuiz];
+  
+    questionEl.innerText = currentQuizData.question;
+    a_text.innerText = currentQuizData.a;
+    b_text.innerText = currentQuizData.b;
+    c_text.innerText = currentQuizData.c;
+    d_text.innerText = currentQuizData.d;
+  }
+  function myFunc() {
+    window.location.href = "prin.html";
+  }
+  function deselectAnswers() {
+    answerEls.forEach((answerEl) => (answerEl.checked = false));
+  }
+  
+  function getSelected() {
+    let answer;
+  
+    answerEls.forEach((answerEl) => {
+      if (answerEl.checked) {
+        answer = answerEl.id;
+      }
+    });
+    return answer;
+  }const progressBar = document.getElementById("progressBar");
+
+
+
+
+
+
+
+  const submitButton = document.getElementById("submit");
+
+
+let answeredQuestions = 0;
+const totalQuestions = 30; // Change this to the total number of questions in your quiz
+const answer = getSelected();
+submitButton.addEventListener("click", () => {
+ 
+  if (answer) {
+   
+  } 
+});
+
+function updateProgressBar() {
+  const progressPercentage = (answeredQuestions / totalQuestions) * 100;
+  progressBar.style.width = progressPercentage + "%";
+
+ 
+}
+
+
+
+
+
+
+  submitBtn.addEventListener("click", () => {
+    const answer = getSelected();
+    if (answer) {
+        answeredQuestions++;
+    updateProgressBar();
+      if (answer === quizData[currentQuiz].correct) {
+        score++;
+      }
+      currentQuiz++;
+      if (currentQuiz < quizData.length) {
+        loadQuiz();
+      } else {
+        if(score>22)
+        {
+        quiz.innerHTML = `
+              <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+              <h2>EXCELLENT<h2>
+              <button onclick="myFunc()">Next</button>
+              
+
+            
+          `;}
+          else if(score>10 && score<22)
+          {
+            quiz.innerHTML = `
+              <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+              <h2>EXCELLENT<h2>
+              <button onclick="myFunc()">Next</button>
+              
+          `;}
+          else {
+            quiz.innerHTML = `
+                  <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+                 <h2>try again <h2>
+                  <button onclick="location.reload()">Reload</button>
+              `;}
+      }
+    }else {
+    alert("Please select an answer before submitting.");
+  }
+  
+  
+  });
+  
+  // ===========================
+  //           Watermark
+  // ===========================
+  const DOT_AMOUNT = 40;
+  
+  const createSVG = (width, height, className, childType, childAttributes) => {
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  
+    svg.classList.add(className);
+  
+    const child = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      childType
+    );
+  
+    svg.setAttributeNS(
+      "http://www.w3.org/2000/svg",
+      "viewBox",
+      `0 0 ${width} ${height}`
+    );
+  
+    for (const attr in childAttributes) {
+      child.setAttribute(attr, childAttributes[attr]);
+    }
+  
+    svg.appendChild(child);
+  
+    return { svg, child };
+  };
+  
+  document.querySelectorAll(".generate-button").forEach((button) => {
+    const width = button.offsetWidth;
+    const height = button.offsetHeight;
+  
+    const style = getComputedStyle(button);
+  
+    const { svg, child: circle } = createSVG(width, height, "dots", "circle", {
+      cx: "0",
+      cy: "0",
+      r: "0"
+    });
+  
+    const strokeGroup = document.createElement("div");
+    strokeGroup.classList.add("stroke");
+  
+    const { svg: stroke } = createSVG(width, height, "stroke-line", "rect", {
+      x: "0",
+      y: "0",
+      width: "100%",
+      height: "100%",
+      rx: parseInt(style.borderRadius, 10),
+      ry: parseInt(style.borderRadius, 10),
+      pathLength: "10"
+    });
+  
+    button.appendChild(svg);
+  
+    strokeGroup.appendChild(stroke);
+    strokeGroup.appendChild(stroke.cloneNode(true));
+  
+    button.appendChild(strokeGroup);
+  
+    const timeline = gsap.timeline({ paused: true });
+  
+    for (var i = 0; i < DOT_AMOUNT; i++) {
+      var p = circle.cloneNode(true);
+      svg.appendChild(p);
+  
+      gsap.set(p, {
+        attr: {
+          cx: gsap.utils.random(width * 0.25, width * 0.75),
+          cy: gsap.utils.random(height * 0.5, height * 0.5),
+          r: 0
+        }
+      });
+  
+      var durationRandom = gsap.utils.random(10, 12);
+  
+      var tl = gsap.timeline();
+  
+      tl.to(
+        p,
+        {
+          duration: durationRandom,
+          rotation: i % 2 === 0 ? 350 : -420,
+          attr: {
+            r: gsap.utils.random(0.75, 1.5),
+            cy: -width * gsap.utils.random(1.25, 1.75)
+          },
+          physics2D: {
+            angle: -90,
+            gravity: gsap.utils.random(-4, -8),
+            velocity: gsap.utils.random(10, 25)
+          }
+        },
+        "-=" + durationRandom / 2
+      ).to(
+        p,
+        {
+          duration: durationRandom / 3,
+          attr: {
+            r: 0
+          }
+        },
+        "-=" + durationRandom / 4
+      );
+  
+      timeline.add(tl, i / 3);
+    }
+  
+    svg.removeChild(circle);
+  
+    const finalTimeline = gsap.to(timeline, {
+      duration: 10,
+      repeat: -1,
+      time: timeline.duration(),
+      paused: true
+    });
+  
+    const stars = gsap.to(button, {
+      repeat: -1,
+      repeatDelay: 0.75,
+      paused: true,
+      keyframes: [
+        {
+          "--generate-button-star-2-scale": ".5",
+          "--generate-button-star-2-opacity": ".25",
+          "--generate-button-star-3-scale": "1.25",
+          "--generate-button-star-3-opacity": "1",
+          duration: 0.3
+        },
+        {
+          "--generate-button-star-1-scale": "1.5",
+          "--generate-button-star-1-opacity": ".5",
+          "--generate-button-star-2-scale": ".5",
+          "--generate-button-star-3-scale": "1",
+          "--generate-button-star-3-opacity": ".5",
+          duration: 0.3
+        },
+        {
+          "--generate-button-star-1-scale": "1",
+          "--generate-button-star-1-opacity": ".25",
+          "--generate-button-star-2-scale": "1.15",
+          "--generate-button-star-2-opacity": "1",
+          duration: 0.3
+        },
+        {
+          "--generate-button-star-2-scale": "1",
+          duration: 0.35
+        }
+      ]
+    });
+  
+    button.addEventListener("pointerenter", () => {
+      gsap.to(button, {
+        "--generate-button-dots-opacity": "1",
+        duration: 0.5,
+        onStart: () => {
+          finalTimeline.restart().play();
+          setTimeout(() => stars.restart().play(), 500);
+        }
+      });
+    });
+  
+    button.addEventListener("pointerleave", () => {
+      gsap.to(button, {
+        "--generate-button-dots-opacity": "0",
+        "--generate-button-star-1-opacity": ".25",
+        "--generate-button-star-1-scale": "1",
+        "--generate-button-star-2-opacity": "1",
+        "--generate-button-star-2-scale": "1",
+        "--generate-button-star-3-opacity": ".5",
+        "--generate-button-star-3-scale": "1",
+        duration: 0.15,
+        onComplete: () => {
+          finalTimeline.pause();
+          stars.pause();
+        }
+      });
+    });
+  });
+
+
+
+
+  </script>
+
+</body>

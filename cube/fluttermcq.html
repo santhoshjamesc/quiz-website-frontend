@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+
+<button id="bb" onclick="location.href='text.html'">back</button>
+<head><head><div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div></head> </head>
+<title>question</title>
+<body>
+    
+  <style>@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+#bb {
+  margin-left: -80%;
+  width: 150px;
+}
+
+h5{
+  color: #fff;
+  font-size: 30px;
+}
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .progress-container {
+  width: 100%;
+ 
+}
+.quiz-container
+{
+margin-left: 15%;
+
+
+}
+.progress-bar {
+  width: 0;
+  height: 40px;
+  background-color: #ffffff;
+  transition: width 1.2s;
+}
+    .answer{
+        height: 30px;
+        width: 30px;
+    }
+    body {
+    
+       
+      background-color: #000000;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+   
+    
+   
+    
+    h2 {
+    
+      padding-bottom: 0.5rem;
+      margin-left: 1%;
+      color: #fff;
+      font-size: 50px;
+    }
+    
+    ul {
+        
+      list-style-type: none;
+      padding: 0;
+      margin-left: 1rem;
+    }
+    
+    ul li {
+      font-size: 2.6rem;
+      color: #ffffff;
+      margin-top: 0.8rem;
+    }
+    
+    ul li label {
+      cursor: pointer;
+    }
+    
+    button {
+      background-color: #000000;
+      color: #fff;
+      border: 2px solid rgb(255, 255, 255);
+      display: block;
+      width: 30%;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-family: inherit;
+      padding: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-left: 25%;
+    }
+    
+    button:hover {
+      background-color: #ffffff;
+      color: rgb(0, 0, 0);
+    }
+    
+    button:focus {
+      outline: none;
+      background-color: #ffffff;
+    }
+   
+    /* =========================
+              Watermark
+    ========================= */
+   
+    .generate-button {
+      --generate-button-star-1-opacity: 0.25;
+      --generate-button-star-1-scale: 1;
+      --generate-button-star-2-opacity: 1;
+      --generate-button-star-2-scale: 1;
+      --generate-button-star-3-opacity: 0.5;
+      --generate-button-star-3-scale: 1;
+      --generate-button-dots-opacity: 0;
+      appearance: none;
+      outline: none;
+      border: none;
+      padding: 14px 24px 14px 20px;
+      border-radius: 29px;
+      margin: 0;
+      background-color: #222222;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      z-index: 1;
+      transform: scale(var(--generate-button-scale, 1)) translateZ(0);
+      box-shadow: 0px 0px 120px var(--generate-button-shadow-wide, transparent),
+        0px 4px 12px rgba(0, 0, 0, 0.05), 0px 1px 2px rgba(0, 0, 0, 0.1),
+        inset 0px 1px 1px
+          var(--generate-button-shadow-inset, rgba(255, 255, 255, 0.04)),
+        0 0 0 var(--generate-button-shadow-outline, 0px) rgba(109, 68, 244, 0.4);
+      transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s, color 0.3s;
+    }
+    .generate-button:before {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 20%;
+      height: 20px;
+      left: 20%;
+      bottom: -10px;
+      background: rgb(168, 109, 255);
+      filter: blur(12.5px);
+      z-index: 2;
+      clip-path: inset(-200% -30% 10px -30% round 29px);
+      opacity: 0;
+      transition: opacity 0.4s;
+      transform: translateZ(0);
+    }
+    .generate-button span {
+      position: relative;
+      z-index: 1;
+      font-family: "Poppins", Arial;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 0.005em;
+      display: block;
+    }
+    .generate-button span:before {
+      content: "";
+      background-image: linear-gradient(to right, transparent, #1d1d1d);
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.4;
+      transition: opacity 0.4s;
+    }
+    .generate-button .stroke {
+      mix-blend-mode: hard-light;
+    }
+    .generate-button .stroke svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke-width: 0.75px;
+      stroke: #e2d9ff;
+      stroke-dasharray: 1.5 14;
+      stroke-dashoffset: 22;
+      opacity: 0;
+    }
+    .generate-button .stroke svg:nth-child(2) {
+      stroke-width: 1px;
+      stroke-opacity: 0.5;
+      filter: blur(3px);
+    }
+    .generate-button svg {
+      display: block;
+      overflow: visible;
+      pointer-events: none;
+    }
+    .generate-button svg.dots {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      fill: #d3b2ff;
+      opacity: var(--generate-button-dots-opacity);
+    }
+    .generate-button svg.icon {
+      width: 18px;
+      height: 20px;
+      margin-right: 10px;
+      fill: currentColor;
+    }
+    .generate-button svg.icon path:nth-child(1) {
+      opacity: var(--generate-button-star-1-opacity);
+      transform: scale(var(--generate-button-star-1-scale)) translateZ(0);
+      transform-origin: 25% 14.58%;
+    }
+    .generate-button svg.icon path:nth-child(2) {
+      opacity: var(--generate-button-star-2-opacity);
+      transform: scale(var(--generate-button-star-2-scale)) translateZ(0);
+      transform-origin: 60.42% 50%;
+    }
+    .generate-button svg.icon path:nth-child(3) {
+      opacity: var(--generate-button-star-3-opacity);
+      transform: scale(var(--generate-button-star-3-scale)) translateZ(0);
+      transform-origin: 25% 85.42%;
+    }
+    .generate-button:hover {
+      --generate-button-scale: 1.01;
+      --generate-button-shadow-wide: rgba(208, 173, 255, 0.4);
+      --generate-button-shadow-inset: rgba(255, 255, 255, 0.35);
+      --generate-button-shadow-outline: 3px;
+      color: #fff;
+      background-color: #6d44f4;
+    }
+    .generate-button:hover .stroke svg {
+      animation: stroke 2s linear infinite;
+    }
+    .generate-button:hover:before {
+      opacity: 1;
+    }
+    .generate-button:hover span:before {
+      opacity: 0;
+    }
+    .generate-button:hover:active {
+      --generate-button-scale: 1.05;
+    }
+    @keyframes stroke {
+      0% {
+        opacity: 0;
+      }
+      25%,
+      75% {
+        opacity: 1;
+      }
+      95%,
+      100% {
+        stroke-dashoffset: 6;
+        opacity: 0;
+      }
+    }
+    </style>
+
+    <br><fieldset>
+<div class="quiz-container" id="quiz">
+    
+  <div class="quiz-header">
+    <br><br><br><br><br><br>
+    <h2 id="question">Question text</h2>
+    <br><br><br><br><br><br>
+    <ul>
+      <li>
+        <input type="radio" name="answer" id="a" class="answer" />
+        <label for="a" id="a_text">Question</label>
+      </li>
+
+      <li>
+        <input type="radio" name="answer" id="b" class="answer" />
+        <label for="b" id="b_text">Question</label>
+      </li>
+
+      <li>
+        <input type="radio" name="answer" id="c" class="answer" />
+        <label for="c" id="c_text">Question</label>
+      </li>
+
+      <li>
+        <input type="radio" name="answer" id="d" class="answer" />
+        <label for="d" id="d_text">Question</label>
+      </li>
+    </ul>
+  </div><br><br><br><br><br>
+  <button id="submit">Submit</button><br><br><br><br><br><br>
+  </div>
+</div>
+</fieldset>
+<!-- =========================
+          Watermark
+========================= -->
+<script>
+const quizData = [
+
+
+
+{
+question: "What is Flutter?",
+a: "A popular mobile game",
+b: "A web development framework",
+c: "A mobile app development framework",
+d: "A social media platform",
+correct: "c"
+},
+
+{
+question: "Who developed Flutter?",
+a: "Google",
+b: "Facebook",
+c: "Apple",
+d: "Microsoft",
+correct: "a"
+},
+
+{
+question: "Which programming language is primarily used for Flutter app development?",
+a: "Java",
+b: "Kotlin",
+c: "Swift",
+d: "Dart",
+correct: "d"
+},
+
+{
+question: "What is the Flutter widget tree?",
+a: "A graphical representation of Flutter developers' favorite widgets",
+b: "A hierarchy of user interface elements in a Flutter app",
+c: "A data structure for storing images in Flutter",
+d: "A data structure for storing app data",
+correct: "b"
+},
+
+{
+question: "What is a 'StatefulWidget' in Flutter?",
+a: "A widget that displays static content",
+b: "A widget that can change its content over time",
+c: "A widget used for layout purposes only",
+d: "A widget used for handling user gestures",
+correct: "b"
+},
+
+{
+question: "What is 'hot reload' in Flutter?",
+a: "A feature for heating up your device",
+b: "A process of quickly rebuilding and updating the Flutter app while it's running",
+c: "A function for reloading app data",
+d: "A debugging tool",
+correct: "b"
+},
+
+{
+question: "What is 'Flutter Doctor' used for?",
+a: "To find a Flutter app developer near you",
+b: "To diagnose and fix issues with Flutter installation",
+c: "To order Flutter merchandise",
+d: "To search for Flutter app templates",
+correct: "b"
+},
+
+{
+question: "Which IDEs (Integrated Development Environments) are commonly used for Flutter development?",
+a: "Android Studio and Visual Studio Code",
+b: "Eclipse and Xcode",
+c: "NetBeans and Sublime Text",
+d: "Emacs and Vim",
+correct: "a"
+},
+
+{
+question: "What is a 'Widget' in Flutter?",
+a: "A physical button on a mobile device",
+b: "A unit of the Flutter app's user interface",
+c: "A programming language",
+d: "A type of database",
+correct: "b"
+},
+
+{
+question: "What is 'Flutter Layout'?",
+a: "A Flutter app's blueprint for user interface design",
+b: "A Flutter developer's favorite magazine",
+c: "A visual design tool for Flutter",
+d: "A programming language",
+correct: "a"
+},
+
+{
+question: "What is 'Flutter Pub'?",
+a: "A popular social networking platform for Flutter developers",
+b: "A marketplace for buying and selling Flutter apps",
+c: "A package manager for Flutter",
+d: "A conference for Flutter enthusiasts",
+correct: "c"
+},
+
+{
+question: "What is 'Flutter Inspector' used for?",
+a: "To inspect the contents of a Flutter developer's workspace",
+b: "To inspect and debug Flutter apps during development",
+c: "To inspect physical devices for Flutter compatibility",
+d: "To inspect the Flutter community's code contributions",
+correct: "b"
+},
+
+{
+question: "What is 'Flutter SDK'?",
+a: "A software development kit for developing web apps",
+b: "A set of tools and libraries for developing Flutter apps",
+c: "A social networking platform for Flutter enthusiasts",
+d: "A marketplace for Flutter app templates",
+correct: "b"
+},
+
+{
+question: "What is 'Material Design' in the context of Flutter?",
+a: "A design pattern for creating physical materials",
+b: "A set of design guidelines and components for creating visually appealing Flutter apps",
+c: "A type of Flutter widget",
+d: "A programming language for Flutter development",
+correct: "b"
+},
+
+{
+question: "What is the purpose of 'Cupertino' widgets in Flutter?",
+a: "To create iOS-style user interfaces",
+b: "To create Android-style user interfaces",
+c: "To create web-based user interfaces",
+d: "To create desktop application interfaces",
+correct: "a"
+},
+
+{
+question: "What is 'Flutter Navigator'?",
+a: "A tool for navigating physical locations",
+b: "A widget for managing the navigation stack in a Flutter app",
+c: "A travel planning app built with Flutter",
+d: "A design pattern for Flutter app development",
+correct: "b"
+},
+
+{
+question: "What is 'Flutter Animation' used for?",
+a: "To play videos in a Flutter app",
+b: "To create animated effects in a Flutter app",
+c: "To add background music to a Flutter app",
+d: "To generate 3D graphics in a Flutter app",
+correct: "b"
+},
+
+{
+question: "What is 'Flutter State Management'?",
+a: "A way to manage the state of physical devices",
+b: "A way to manage the state of a Flutter app's user interface",
+c: "A method for securing sensitive data in a Flutter app",
+d: "A way to manage the state of network connections in a Flutter app",
+correct: "b"
+},
+
+{
+question: "What is 'Flutter Package'?",
+a: "A physical package delivered to Flutter developers",
+b: "A collection of Flutter code and assets that can be shared and reused",
+c: "A software tool for packaging Flutter apps for distribution",
+d: "A type of data structure in Flutter",
+correct: "b"
+},
+
+{
+question: "What is 'Flutter Asset'?",
+a: "A physical asset like a car or house",
+b: "A static file, such as an image or font, bundled with a Flutter app",
+c: "A financial asset in Flutter development",
+d: "A type of Flutter widget",
+correct: "b"
+},
+
+{
+question: "What is the purpose of 'Flutter Plugins'?",
+a: "To enhance the battery life of mobile devices",
+b: "To add native functionality to a Flutter app",
+c: "To create Flutter app templates",
+d: "To design Flutter app icons",
+correct: "b"
+},
+
+{
+question: "What is 'Flutter Testing' used for?",
+a: "To test physical devices for Flutter compatibility",
+b: "To test the performance of a Flutter app",
+c: "To automate the testing of Flutter apps",
+d: "To test Flutter developer skills",
+correct: "c"
+},
+
+{
+question: "What is 'Flutter Dependency Injection'?",
+a: "A technique for injecting physical dependencies into a Flutter app",
+b: "A technique for managing Flutter app dependencies",
+c: "A method for injecting code into a Flutter app",
+d: "A method for injecting advertising into a Flutter app",
+correct: "b"
+},
+
+{
+question: "What is 'Flutter Internationalization'?",
+a: "A method for translating Flutter app code into multiple languages",
+b: "A way to measure the speed of Flutter app development",
+c: "A process for converting Flutter apps into international currencies",
+d: "A feature for enabling global Flutter app distribution",
+correct: "a"
+},
+
+{
+question: "What is 'Flutter Accessibility'?",
+a: "A way to enhance Flutter app security",
+b: "A feature for making Flutter apps more accessible to people with disabilities",
+c: "A method for tracking user behavior in a Flutter app",
+d: "A method for increasing Flutter app download rates",
+correct: "b"
+},
+
+
+
+
+  ];
+  
+  const quiz = document.getElementById("quiz");
+  const answerEls = document.querySelectorAll(".answer");
+  const questionEl = document.getElementById("question");
+  const a_text = document.getElementById("a_text");
+  const b_text = document.getElementById("b_text");
+  const c_text = document.getElementById("c_text");
+  const d_text = document.getElementById("d_text");
+  const submitBtn = document.getElementById("submit");
+  
+  let currentQuiz = 0;
+  let score = 0;
+  
+  loadQuiz();
+  
+  function loadQuiz() {
+    deselectAnswers();
+  
+    const currentQuizData = quizData[currentQuiz];
+  
+    questionEl.innerText = currentQuizData.question;
+    a_text.innerText = currentQuizData.a;
+    b_text.innerText = currentQuizData.b;
+    c_text.innerText = currentQuizData.c;
+    d_text.innerText = currentQuizData.d;
+  }
+  function myFunc() {
+    window.location.href = "prin.html";
+  }
+  function deselectAnswers() {
+    answerEls.forEach((answerEl) => (answerEl.checked = false));
+  }
+  
+  function getSelected() {
+    let answer;
+  
+    answerEls.forEach((answerEl) => {
+      if (answerEl.checked) {
+        answer = answerEl.id;
+      }
+    });
+    return answer;
+  }const progressBar = document.getElementById("progressBar");
+
+
+
+
+
+
+
+  const submitButton = document.getElementById("submit");
+
+
+let answeredQuestions = 0;
+const totalQuestions = 25; // Change this to the total number of questions in your quiz
+const answer = getSelected();
+submitButton.addEventListener("click", () => {
+ 
+  if (answer) {
+   
+  } 
+});
+
+function updateProgressBar() {
+  const progressPercentage = (answeredQuestions / totalQuestions) * 100;
+  progressBar.style.width = progressPercentage + "%";
+
+ 
+}
+
+
+
+submitBtn.addEventListener("click", () => {
+    const answer = getSelected();
+    if (answer) {
+        answeredQuestions++;
+    updateProgressBar();
+      if (answer === quizData[currentQuiz].correct) {
+        score++;
+      }
+      currentQuiz++;
+      if (currentQuiz < quizData.length) {
+        loadQuiz();
+      } else {
+        if(score>22)
+        {
+        quiz.innerHTML = `
+              <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+              <h2>EXCELLENT<h2>
+              <button onclick="myFunc()">Next</button>
+              
+
+            
+          `;}
+          else if(score>10 && score<22)
+          {
+            quiz.innerHTML = `
+              <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+              <h2>EXCELLENT<h2>
+              <button onclick="myFunc()">Next</button>
+              
+          `;}
+          else {
+            quiz.innerHTML = `
+                  <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+                 <h2>try again <h2>
+                  <button onclick="location.reload()">Reload</button>
+              `;}
+      }
+    }else {
+    alert("Please select an answer before submitting.");
+  }
+  
+  
+  });
+
+
+
+  
+  // ===========================
+  //           Watermark
+  // ===========================
+  const DOT_AMOUNT = 40;
+  
+  const createSVG = (width, height, className, childType, childAttributes) => {
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  
+    svg.classList.add(className);
+  
+    const child = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      childType
+    );
+  
+    svg.setAttributeNS(
+      "http://www.w3.org/2000/svg",
+      "viewBox",
+      `0 0 ${width} ${height}`
+    );
+  
+    for (const attr in childAttributes) {
+      child.setAttribute(attr, childAttributes[attr]);
+    }
+  
+    svg.appendChild(child);
+  
+    return { svg, child };
+  };
+  
+  document.querySelectorAll(".generate-button").forEach((button) => {
+    const width = button.offsetWidth;
+    const height = button.offsetHeight;
+  
+    const style = getComputedStyle(button);
+  
+    const { svg, child: circle } = createSVG(width, height, "dots", "circle", {
+      cx: "0",
+      cy: "0",
+      r: "0"
+    });
+  
+    const strokeGroup = document.createElement("div");
+    strokeGroup.classList.add("stroke");
+  
+    const { svg: stroke } = createSVG(width, height, "stroke-line", "rect", {
+      x: "0",
+      y: "0",
+      width: "100%",
+      height: "100%",
+      rx: parseInt(style.borderRadius, 10),
+      ry: parseInt(style.borderRadius, 10),
+      pathLength: "10"
+    });
+  
+    button.appendChild(svg);
+  
+    strokeGroup.appendChild(stroke);
+    strokeGroup.appendChild(stroke.cloneNode(true));
+  
+    button.appendChild(strokeGroup);
+  
+    const timeline = gsap.timeline({ paused: true });
+  
+    for (var i = 0; i < DOT_AMOUNT; i++) {
+      var p = circle.cloneNode(true);
+      svg.appendChild(p);
+  
+      gsap.set(p, {
+        attr: {
+          cx: gsap.utils.random(width * 0.25, width * 0.75),
+          cy: gsap.utils.random(height * 0.5, height * 0.5),
+          r: 0
+        }
+      });
+  
+      var durationRandom = gsap.utils.random(10, 12);
+  
+      var tl = gsap.timeline();
+  
+      tl.to(
+        p,
+        {
+          duration: durationRandom,
+          rotation: i % 2 === 0 ? 350 : -420,
+          attr: {
+            r: gsap.utils.random(0.75, 1.5),
+            cy: -width * gsap.utils.random(1.25, 1.75)
+          },
+          physics2D: {
+            angle: -90,
+            gravity: gsap.utils.random(-4, -8),
+            velocity: gsap.utils.random(10, 25)
+          }
+        },
+        "-=" + durationRandom / 2
+      ).to(
+        p,
+        {
+          duration: durationRandom / 3,
+          attr: {
+            r: 0
+          }
+        },
+        "-=" + durationRandom / 4
+      );
+  
+      timeline.add(tl, i / 3);
+    }
+  
+    svg.removeChild(circle);
+  
+    const finalTimeline = gsap.to(timeline, {
+      duration: 10,
+      repeat: -1,
+      time: timeline.duration(),
+      paused: true
+    });
+  
+    const stars = gsap.to(button, {
+      repeat: -1,
+      repeatDelay: 0.75,
+      paused: true,
+      keyframes: [
+        {
+          "--generate-button-star-2-scale": ".5",
+          "--generate-button-star-2-opacity": ".25",
+          "--generate-button-star-3-scale": "1.25",
+          "--generate-button-star-3-opacity": "1",
+          duration: 0.3
+        },
+        {
+          "--generate-button-star-1-scale": "1.5",
+          "--generate-button-star-1-opacity": ".5",
+          "--generate-button-star-2-scale": ".5",
+          "--generate-button-star-3-scale": "1",
+          "--generate-button-star-3-opacity": ".5",
+          duration: 0.3
+        },
+        {
+          "--generate-button-star-1-scale": "1",
+          "--generate-button-star-1-opacity": ".25",
+          "--generate-button-star-2-scale": "1.15",
+          "--generate-button-star-2-opacity": "1",
+          duration: 0.3
+        },
+        {
+          "--generate-button-star-2-scale": "1",
+          duration: 0.35
+        }
+      ]
+    });
+  
+    button.addEventListener("pointerenter", () => {
+      gsap.to(button, {
+        "--generate-button-dots-opacity": "1",
+        duration: 0.5,
+        onStart: () => {
+          finalTimeline.restart().play();
+          setTimeout(() => stars.restart().play(), 500);
+        }
+      });
+    });
+  
+    button.addEventListener("pointerleave", () => {
+      gsap.to(button, {
+        "--generate-button-dots-opacity": "0",
+        "--generate-button-star-1-opacity": ".25",
+        "--generate-button-star-1-scale": "1",
+        "--generate-button-star-2-opacity": "1",
+        "--generate-button-star-2-scale": "1",
+        "--generate-button-star-3-opacity": ".5",
+        "--generate-button-star-3-scale": "1",
+        duration: 0.15,
+        onComplete: () => {
+          finalTimeline.pause();
+          stars.pause();
+        }
+      });
+    });
+  });
+
+
+
+
+  </script>
+
+</body>

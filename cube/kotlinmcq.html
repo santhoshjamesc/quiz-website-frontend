@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+
+<button id="bb" onclick="location.href='text.html'">back</button>
+<head><head><div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div></head> </head>
+<title>question</title>
+<body>
+    
+  <style>@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+#bb {
+  margin-left: -80%;
+  width: 150px;
+}
+
+h5{
+  color: #fff;
+  font-size: 30px;
+}
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .progress-container {
+  width: 100%;
+ 
+}
+.quiz-container
+{
+margin-left: 15%;
+
+
+}
+.progress-bar {
+  width: 0;
+  height: 40px;
+  background-color: #ffffff;
+  transition: width 1.2s;
+}
+    .answer{
+        height: 30px;
+        width: 30px;
+    }
+    body {
+    
+       
+      background-color: #000000;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+   
+    
+   
+    
+    h2 {
+    
+      padding-bottom: 0.5rem;
+      margin-left: 1%;
+      color: #fff;
+      font-size: 50px;
+    }
+    
+    ul {
+        
+      list-style-type: none;
+      padding: 0;
+      margin-left: 1rem;
+    }
+    
+    ul li {
+      font-size: 2.6rem;
+      color: #ffffff;
+      margin-top: 0.8rem;
+    }
+    
+    ul li label {
+      cursor: pointer;
+    }
+    
+    button {
+      background-color: #000000;
+      color: #fff;
+      border: 2px solid rgb(255, 255, 255);
+      display: block;
+      width: 30%;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-family: inherit;
+      padding: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-left: 25%;
+    }
+    
+    button:hover {
+      background-color: #ffffff;
+      color: rgb(0, 0, 0);
+    }
+    
+    button:focus {
+      outline: none;
+      background-color: #ffffff;
+    }
+   
+    /* =========================
+              Watermark
+    ========================= */
+   
+    .generate-button {
+      --generate-button-star-1-opacity: 0.25;
+      --generate-button-star-1-scale: 1;
+      --generate-button-star-2-opacity: 1;
+      --generate-button-star-2-scale: 1;
+      --generate-button-star-3-opacity: 0.5;
+      --generate-button-star-3-scale: 1;
+      --generate-button-dots-opacity: 0;
+      appearance: none;
+      outline: none;
+      border: none;
+      padding: 14px 24px 14px 20px;
+      border-radius: 29px;
+      margin: 0;
+      background-color: #222222;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      z-index: 1;
+      transform: scale(var(--generate-button-scale, 1)) translateZ(0);
+      box-shadow: 0px 0px 120px var(--generate-button-shadow-wide, transparent),
+        0px 4px 12px rgba(0, 0, 0, 0.05), 0px 1px 2px rgba(0, 0, 0, 0.1),
+        inset 0px 1px 1px
+          var(--generate-button-shadow-inset, rgba(255, 255, 255, 0.04)),
+        0 0 0 var(--generate-button-shadow-outline, 0px) rgba(109, 68, 244, 0.4);
+      transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s, color 0.3s;
+    }
+    .generate-button:before {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 20%;
+      height: 20px;
+      left: 20%;
+      bottom: -10px;
+      background: rgb(168, 109, 255);
+      filter: blur(12.5px);
+      z-index: 2;
+      clip-path: inset(-200% -30% 10px -30% round 29px);
+      opacity: 0;
+      transition: opacity 0.4s;
+      transform: translateZ(0);
+    }
+    .generate-button span {
+      position: relative;
+      z-index: 1;
+      font-family: "Poppins", Arial;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 0.005em;
+      display: block;
+    }
+    .generate-button span:before {
+      content: "";
+      background-image: linear-gradient(to right, transparent, #1d1d1d);
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.4;
+      transition: opacity 0.4s;
+    }
+    .generate-button .stroke {
+      mix-blend-mode: hard-light;
+    }
+    .generate-button .stroke svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke-width: 0.75px;
+      stroke: #e2d9ff;
+      stroke-dasharray: 1.5 14;
+      stroke-dashoffset: 22;
+      opacity: 0;
+    }
+    .generate-button .stroke svg:nth-child(2) {
+      stroke-width: 1px;
+      stroke-opacity: 0.5;
+      filter: blur(3px);
+    }
+    .generate-button svg {
+      display: block;
+      overflow: visible;
+      pointer-events: none;
+    }
+    .generate-button svg.dots {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      fill: #d3b2ff;
+      opacity: var(--generate-button-dots-opacity);
+    }
+    .generate-button svg.icon {
+      width: 18px;
+      height: 20px;
+      margin-right: 10px;
+      fill: currentColor;
+    }
+    .generate-button svg.icon path:nth-child(1) {
+      opacity: var(--generate-button-star-1-opacity);
+      transform: scale(var(--generate-button-star-1-scale)) translateZ(0);
+      transform-origin: 25% 14.58%;
+    }
+    .generate-button svg.icon path:nth-child(2) {
+      opacity: var(--generate-button-star-2-opacity);
+      transform: scale(var(--generate-button-star-2-scale)) translateZ(0);
+      transform-origin: 60.42% 50%;
+    }
+    .generate-button svg.icon path:nth-child(3) {
+      opacity: var(--generate-button-star-3-opacity);
+      transform: scale(var(--generate-button-star-3-scale)) translateZ(0);
+      transform-origin: 25% 85.42%;
+    }
+    .generate-button:hover {
+      --generate-button-scale: 1.01;
+      --generate-button-shadow-wide: rgba(208, 173, 255, 0.4);
+      --generate-button-shadow-inset: rgba(255, 255, 255, 0.35);
+      --generate-button-shadow-outline: 3px;
+      color: #fff;
+      background-color: #6d44f4;
+    }
+    .generate-button:hover .stroke svg {
+      animation: stroke 2s linear infinite;
+    }
+    .generate-button:hover:before {
+      opacity: 1;
+    }
+    .generate-button:hover span:before {
+      opacity: 0;
+    }
+    .generate-button:hover:active {
+      --generate-button-scale: 1.05;
+    }
+    @keyframes stroke {
+      0% {
+        opacity: 0;
+      }
+      25%,
+      75% {
+        opacity: 1;
+      }
+      95%,
+      100% {
+        stroke-dashoffset: 6;
+        opacity: 0;
+      }
+    }
+    </style>
+
+    <br><fieldset>
+<div class="quiz-container" id="quiz">
+    
+  <div class="quiz-header">
+    <br><br><br><br><br><br>
+    <h2 id="question">Question text</h2>
+    <br><br><br><br><br><br>
+    <ul>
+      <li>
+        <input type="radio" name="answer" id="a" class="answer" />
+        <label for="a" id="a_text">Question</label>
+      </li>
+
+      <li>
+        <input type="radio" name="answer" id="b" class="answer" />
+        <label for="b" id="b_text">Question</label>
+      </li>
+
+      <li>
+        <input type="radio" name="answer" id="c" class="answer" />
+        <label for="c" id="c_text">Question</label>
+      </li>
+
+      <li>
+        <input type="radio" name="answer" id="d" class="answer" />
+        <label for="d" id="d_text">Question</label>
+      </li>
+    </ul>
+  </div><br><br><br><br><br>
+  <button id="submit">Submit</button><br><br><br><br><br><br>
+  </div>
+</div>
+</fieldset>
+<!-- =========================
+          Watermark
+========================= -->
+<script>
+const quizData = [
+{
+question: "What is Kotlin?",
+a: "A popular coffee brand",
+b: "A programming language for Android app development",
+c: "A type of database management system",
+d: "A social networking platform",
+correct: "b"
+},
+
+{
+question: "Who developed Kotlin?",
+a: "Google",
+b: "Apple",
+c: "JetBrains",
+d: "Microsoft",
+correct: "c"
+},
+
+{
+question: "In Kotlin, how do you declare a variable?",
+a: "var",
+b: "let",
+c: "const",
+d: "val",
+correct: "a"
+},
+
+{
+question: "Which keyword is used to define a read-only (immutable) variable in Kotlin?",
+a: "var",
+b: "let",
+c: "const",
+d: "val",
+correct: "d"
+},
+
+{
+question: "What is the main advantage of using Kotlin over Java for Android development?",
+a: "Better performance",
+b: "Simpler syntax",
+c: "Cross-platform compatibility",
+d: "Stronger data encryption",
+correct: "b"
+},
+
+{
+question: "Which Kotlin feature allows you to eliminate the need for explicit null checks?",
+a: "Nullable types",
+b: "Lambda expressions",
+c: "Extension functions",
+d: "Smart casts",
+correct: "a"
+},
+
+{
+question: "What is the Elvis operator in Kotlin used for?",
+a: "Playing music",
+b: "Combining two strings",
+c: "Handling null values",
+d: "Creating classes",
+correct: "c"
+},
+
+{
+question: "In Kotlin, how do you define a function?",
+a: "func",
+b: "fun",
+c: "function",
+d: "fn",
+correct: "b"
+},
+
+{
+question: "Which keyword is used to define an extension function in Kotlin?",
+a: "extension",
+b: "fun",
+c: "extend",
+d: "funct",
+correct: "b"
+},
+
+{
+question: "What is the purpose of a data class in Kotlin?",
+a: "To store data in a database",
+b: "To define a class for holding data",
+c: "To create network connections",
+d: "To perform mathematical operations",
+correct: "b"
+},
+
+{
+question: "What is type inference in Kotlin?",
+a: "A way to declare variables with no type",
+b: "A feature that automatically determines the data type of a variable",
+c: "A mechanism for type casting",
+d: "A method for creating custom data types",
+correct: "b"
+},
+
+{
+question: "Which Kotlin feature simplifies the process of working with collections?",
+a: "Nullable types",
+b: "Extension functions",
+c: "Data classes",
+d: "Type inference",
+correct: "b"
+},
+
+{
+question: "What is a lambda expression in Kotlin?",
+a: "A way to represent anonymous functions",
+b: "A method for creating custom data types",
+c: "A type of data class",
+d: "A form of variable declaration",
+correct: "a"
+},
+
+{
+question: "What is the primary use of the 'when' expression in Kotlin?",
+a: "Defining classes",
+b: "Handling exceptions",
+c: "Working with dates and times",
+d: "Pattern matching and branching",
+correct: "d"
+},
+
+{
+question: "What is a higher-order function in Kotlin?",
+a: "A function that operates on a single data type",
+b: "A function that takes another function as a parameter or returns it",
+c: "A function with a high level of complexity",
+d: "A function that has a large number of arguments",
+correct: "b"
+},
+
+{
+question: "What is a sealed class in Kotlin?",
+a: "A class that cannot be inherited from",
+b: "A class that is not allowed to contain any properties",
+c: "A class that can only be used for data storage",
+d: "A class that can only be extended by a limited set of classes",
+correct: "d"
+},
+
+{
+question: "What does the 'lateinit' keyword indicate in Kotlin?",
+a: "A variable that cannot be modified",
+b: "A variable that is initialized at the time of declaration",
+c: "A variable that can be assigned a value later, after declaration",
+d: "A variable that must be declared as nullable",
+correct: "c"
+},
+
+{
+question: "What is the purpose of the 'by lazy' keyword in Kotlin?",
+a: "To define a lazy variable",
+b: "To create a new class",
+c: "To handle exceptions",
+d: "To define extension functions",
+correct: "a"
+},
+
+{
+question: "Which Kotlin feature simplifies the process of working with nullable types?",
+a: "Extension functions",
+b: "Nullable types",
+c: "Data classes",
+d: "Smart casts",
+correct: "d"
+},
+
+{
+question: "What is the primary advantage of using Kotlin's extension functions?",
+a: "They allow you to define custom data types",
+b: "They can add new functions to existing classes without modifying their source code",
+c: "They provide a way to perform mathematical operations",
+d: "They improve the performance of the application",
+correct: "b"
+},
+
+{
+question: "What is the 'init' block used for in Kotlin?",
+a: "Initializing properties of a class",
+b: "Creating new instances of a class",
+c: "Handling exceptions",
+d: "Defining lambda expressions",
+correct: "a"
+},
+
+{
+question: "What is the purpose of the 'apply' function in Kotlin?",
+a: "To apply a mathematical operation to a variable",
+b: "To apply a function to all elements of a collection",
+c: "To configure the properties of an object and return the object itself",
+d: "To create a new instance of a class",
+correct: "c"
+},
+
+{
+question: "What is Kotlin's approach to handling null values?",
+a: "It disallows null values entirely",
+b: "It forces developers to use explicit null checks everywhere",
+c: "It uses nullable types and safe calls to handle null values",
+d: "It automatically converts null values to empty strings",
+correct: "c"
+},
+
+{
+question: "What is a 'companion object' in Kotlin?",
+a: "An object that represents a friendship between two classes",
+b: "An object that can access private members of a class",
+c: "An object that is used to store constants and utility functions associated with a class",
+d: "An object that is used for encryption and decryption",
+correct: "c"
+},
+
+{
+question: "What is the purpose of the 'tailrec' keyword in Kotlin?",
+a: "To define a recursive function",
+b: "To optimize tail-recursive functions",
+c: "To create an iterator",
+d: "To define a class hierarchy",
+correct: "b"
+},
+
+{
+question: "What is the 'suspend' keyword used for in Kotlin?",
+a: "To create a delay in code execution",
+b: "To pause the execution of a function",
+c: "To indicate that a function is a coroutine",
+d: "To stop a loop from executing",
+correct: "c"
+},
+
+{
+question: "Which Kotlin feature is used to define multiple classes in the same file?",
+a: "Package",
+b: "Imports",
+c: "Class hierarchy",
+d: "Type aliases",
+correct: "a"
+},
+
+{
+question: "What is the 'infix' keyword used for in Kotlin?",
+a: "To define a function that can be called using infix notation",
+b: "To specify an input file in Kotlin",
+c: "To create an interface",
+d: "To declare a variable as immutable",
+correct: "a"
+},
+
+{
+question: "What is the purpose of the 'with' function in Kotlin?",
+a: "To define extension functions",
+b: "To create a new instance of a class",
+c: "To apply a block of code to an object and return the object itself",
+d: "To perform mathematical operations",
+correct: "c"
+},
+
+{
+question: "What is the primary benefit of using Kotlin for Android app development?",
+a: "Faster app development",
+b: "Improved battery life of devices",
+c: "Enhanced security features",
+d: "Compatibility with older Android versions",
+correct: "a"
+},
+
+
+  ];
+  
+  const quiz = document.getElementById("quiz");
+  const answerEls = document.querySelectorAll(".answer");
+  const questionEl = document.getElementById("question");
+  const a_text = document.getElementById("a_text");
+  const b_text = document.getElementById("b_text");
+  const c_text = document.getElementById("c_text");
+  const d_text = document.getElementById("d_text");
+  const submitBtn = document.getElementById("submit");
+  
+  let currentQuiz = 0;
+  let score = 0;
+  
+  loadQuiz();
+  
+  function loadQuiz() {
+    deselectAnswers();
+  
+    const currentQuizData = quizData[currentQuiz];
+  
+    questionEl.innerText = currentQuizData.question;
+    a_text.innerText = currentQuizData.a;
+    b_text.innerText = currentQuizData.b;
+    c_text.innerText = currentQuizData.c;
+    d_text.innerText = currentQuizData.d;
+  }
+  function myFunc() {
+    window.location.href = "prin.html";
+  }
+  function deselectAnswers() {
+    answerEls.forEach((answerEl) => (answerEl.checked = false));
+  }
+  
+  function getSelected() {
+    let answer;
+  
+    answerEls.forEach((answerEl) => {
+      if (answerEl.checked) {
+        answer = answerEl.id;
+      }
+    });
+    return answer;
+  }const progressBar = document.getElementById("progressBar");
+
+
+
+
+
+
+
+  const submitButton = document.getElementById("submit");
+
+
+let answeredQuestions = 0;
+const totalQuestions = 30; // Change this to the total number of questions in your quiz
+const answer = getSelected();
+submitButton.addEventListener("click", () => {
+ 
+  if (answer) {
+   
+  } 
+});
+
+function updateProgressBar() {
+  const progressPercentage = (answeredQuestions / totalQuestions) * 100;
+  progressBar.style.width = progressPercentage + "%";
+
+ 
+}
+
+
+
+
+
+
+  submitBtn.addEventListener("click", () => {
+    const answer = getSelected();
+    if (answer) {
+        answeredQuestions++;
+    updateProgressBar();
+      if (answer === quizData[currentQuiz].correct) {
+        score++;
+      }
+      currentQuiz++;
+      if (currentQuiz < quizData.length) {
+        loadQuiz();
+      } else {
+        if(score>22)
+        {
+        quiz.innerHTML = `
+              <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+              <h2>EXCELLENT<h2>
+              <button onclick="myFunc()">Next</button>
+              
+
+            
+          `;}
+          else if(score>10 && score<22)
+          {
+            quiz.innerHTML = `
+              <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+              <h2>EXCELLENT<h2>
+              <button onclick="myFunc()">Next</button>
+              
+          `;}
+          else {
+            quiz.innerHTML = `
+                  <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+                 <h2>try again <h2>
+                  <button onclick="location.reload()">Reload</button>
+              `;}
+      }
+    }else {
+    alert("Please select an answer before submitting.");
+  }
+  
+  
+  });
+  
+  // ===========================
+  //           Watermark
+  // ===========================
+  const DOT_AMOUNT = 40;
+  
+  const createSVG = (width, height, className, childType, childAttributes) => {
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  
+    svg.classList.add(className);
+  
+    const child = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      childType
+    );
+  
+    svg.setAttributeNS(
+      "http://www.w3.org/2000/svg",
+      "viewBox",
+      `0 0 ${width} ${height}`
+    );
+  
+    for (const attr in childAttributes) {
+      child.setAttribute(attr, childAttributes[attr]);
+    }
+  
+    svg.appendChild(child);
+  
+    return { svg, child };
+  };
+  
+  document.querySelectorAll(".generate-button").forEach((button) => {
+    const width = button.offsetWidth;
+    const height = button.offsetHeight;
+  
+    const style = getComputedStyle(button);
+  
+    const { svg, child: circle } = createSVG(width, height, "dots", "circle", {
+      cx: "0",
+      cy: "0",
+      r: "0"
+    });
+  
+    const strokeGroup = document.createElement("div");
+    strokeGroup.classList.add("stroke");
+  
+    const { svg: stroke } = createSVG(width, height, "stroke-line", "rect", {
+      x: "0",
+      y: "0",
+      width: "100%",
+      height: "100%",
+      rx: parseInt(style.borderRadius, 10),
+      ry: parseInt(style.borderRadius, 10),
+      pathLength: "10"
+    });
+  
+    button.appendChild(svg);
+  
+    strokeGroup.appendChild(stroke);
+    strokeGroup.appendChild(stroke.cloneNode(true));
+  
+    button.appendChild(strokeGroup);
+  
+    const timeline = gsap.timeline({ paused: true });
+  
+    for (var i = 0; i < DOT_AMOUNT; i++) {
+      var p = circle.cloneNode(true);
+      svg.appendChild(p);
+  
+      gsap.set(p, {
+        attr: {
+          cx: gsap.utils.random(width * 0.25, width * 0.75),
+          cy: gsap.utils.random(height * 0.5, height * 0.5),
+          r: 0
+        }
+      });
+  
+      var durationRandom = gsap.utils.random(10, 12);
+  
+      var tl = gsap.timeline();
+  
+      tl.to(
+        p,
+        {
+          duration: durationRandom,
+          rotation: i % 2 === 0 ? 350 : -420,
+          attr: {
+            r: gsap.utils.random(0.75, 1.5),
+            cy: -width * gsap.utils.random(1.25, 1.75)
+          },
+          physics2D: {
+            angle: -90,
+            gravity: gsap.utils.random(-4, -8),
+            velocity: gsap.utils.random(10, 25)
+          }
+        },
+        "-=" + durationRandom / 2
+      ).to(
+        p,
+        {
+          duration: durationRandom / 3,
+          attr: {
+            r: 0
+          }
+        },
+        "-=" + durationRandom / 4
+      );
+  
+      timeline.add(tl, i / 3);
+    }
+  
+    svg.removeChild(circle);
+  
+    const finalTimeline = gsap.to(timeline, {
+      duration: 10,
+      repeat: -1,
+      time: timeline.duration(),
+      paused: true
+    });
+  
+    const stars = gsap.to(button, {
+      repeat: -1,
+      repeatDelay: 0.75,
+      paused: true,
+      keyframes: [
+        {
+          "--generate-button-star-2-scale": ".5",
+          "--generate-button-star-2-opacity": ".25",
+          "--generate-button-star-3-scale": "1.25",
+          "--generate-button-star-3-opacity": "1",
+          duration: 0.3
+        },
+        {
+          "--generate-button-star-1-scale": "1.5",
+          "--generate-button-star-1-opacity": ".5",
+          "--generate-button-star-2-scale": ".5",
+          "--generate-button-star-3-scale": "1",
+          "--generate-button-star-3-opacity": ".5",
+          duration: 0.3
+        },
+        {
+          "--generate-button-star-1-scale": "1",
+          "--generate-button-star-1-opacity": ".25",
+          "--generate-button-star-2-scale": "1.15",
+          "--generate-button-star-2-opacity": "1",
+          duration: 0.3
+        },
+        {
+          "--generate-button-star-2-scale": "1",
+          duration: 0.35
+        }
+      ]
+    });
+  
+    button.addEventListener("pointerenter", () => {
+      gsap.to(button, {
+        "--generate-button-dots-opacity": "1",
+        duration: 0.5,
+        onStart: () => {
+          finalTimeline.restart().play();
+          setTimeout(() => stars.restart().play(), 500);
+        }
+      });
+    });
+  
+    button.addEventListener("pointerleave", () => {
+      gsap.to(button, {
+        "--generate-button-dots-opacity": "0",
+        "--generate-button-star-1-opacity": ".25",
+        "--generate-button-star-1-scale": "1",
+        "--generate-button-star-2-opacity": "1",
+        "--generate-button-star-2-scale": "1",
+        "--generate-button-star-3-opacity": ".5",
+        "--generate-button-star-3-scale": "1",
+        duration: 0.15,
+        onComplete: () => {
+          finalTimeline.pause();
+          stars.pause();
+        }
+      });
+    });
+  });
+
+
+
+
+  </script>
+
+</body>

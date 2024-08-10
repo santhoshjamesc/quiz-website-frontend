@@ -1,0 +1,64 @@
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+  <head></head>
+  <style>
+button{
+  position: relative;
+  height: 60px;
+  width: 200px;
+  margin: 0 40px;
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  outline: none;
+  cursor: pointer;
+  background: #0d0d0d;
+  overflow: hidden;
+  transition: 0.6s;
+
+  color: #fafdff;
+  border-color: #ffffff;
+}
+button:before, button:after{
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+  height: 100%;
+  filter: blur(30px);
+  opacity: 0.4;
+  transition: 0.6s;
+}
+button:before{
+  width: 60px;
+  background: rgba(255,255,255,0.6);
+  transform: translateX(-100px) skewX(-55deg);
+}
+button:after{
+  width: 30px;
+  background: rgba(255,255,255,0.6);
+  transform: translateX(-130px) skewX(-20deg);
+}
+button:hover:before,
+button:hover:after{
+  opacity: 0.6;
+  transform: translateX(320px) skewX(-45deg);
+}
+button:hover{
+  color: #000000b4;
+font-weight: bolder;
+  background: #ffffff;
+
+}  </style>
+    <meta charset="utf-8">
+  
+
+    <div>
+      <button>Hover Me</button>
+      <button>Hover Me</button>
+      <button>Hover Me</button>
+      <button>Hover Me</button>
+    </div>

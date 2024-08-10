@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+
+<button id="bb" onclick="location.href='text.html'">back</button>
+<head><head><div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div></head> </head>
+<title>question</title>
+<body>
+    
+  <style>@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+#bb {
+  margin-left: -80%;
+  width: 150px;
+}
+
+h5{
+  color: #fff;
+  font-size: 30px;
+}
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .progress-container {
+  width: 100%;
+ 
+}
+.quiz-container
+{
+margin-left: 15%;
+
+
+}
+.progress-bar {
+  width: 0;
+  height: 40px;
+  background-color: #ffffff;
+  transition: width 1.2s;
+}
+    .answer{
+        height: 30px;
+        width: 30px;
+    }
+    body {
+    
+       
+      background-color: #000000;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+   
+    
+   
+    
+    h2 {
+    
+      padding-bottom: 0.5rem;
+      margin-left: 1%;
+      color: #fff;
+      font-size: 50px;
+    }
+    
+    ul {
+        
+      list-style-type: none;
+      padding: 0;
+      margin-left: 1rem;
+    }
+    
+    ul li {
+      font-size: 2.6rem;
+      color: #ffffff;
+      margin-top: 0.8rem;
+    }
+    
+    ul li label {
+      cursor: pointer;
+    }
+    
+    button {
+      background-color: #000000;
+      color: #fff;
+      border: 2px solid rgb(255, 255, 255);
+      display: block;
+      width: 30%;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-family: inherit;
+      padding: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-left: 25%;
+    }
+    
+    button:hover {
+      background-color: #ffffff;
+      color: rgb(0, 0, 0);
+    }
+    
+    button:focus {
+      outline: none;
+      background-color: #ffffff;
+    }
+   
+    /* =========================
+              Watermark
+    ========================= */
+   
+    .generate-button {
+      --generate-button-star-1-opacity: 0.25;
+      --generate-button-star-1-scale: 1;
+      --generate-button-star-2-opacity: 1;
+      --generate-button-star-2-scale: 1;
+      --generate-button-star-3-opacity: 0.5;
+      --generate-button-star-3-scale: 1;
+      --generate-button-dots-opacity: 0;
+      appearance: none;
+      outline: none;
+      border: none;
+      padding: 14px 24px 14px 20px;
+      border-radius: 29px;
+      margin: 0;
+      background-color: #222222;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      z-index: 1;
+      transform: scale(var(--generate-button-scale, 1)) translateZ(0);
+      box-shadow: 0px 0px 120px var(--generate-button-shadow-wide, transparent),
+        0px 4px 12px rgba(0, 0, 0, 0.05), 0px 1px 2px rgba(0, 0, 0, 0.1),
+        inset 0px 1px 1px
+          var(--generate-button-shadow-inset, rgba(255, 255, 255, 0.04)),
+        0 0 0 var(--generate-button-shadow-outline, 0px) rgba(109, 68, 244, 0.4);
+      transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s, color 0.3s;
+    }
+    .generate-button:before {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 20%;
+      height: 20px;
+      left: 20%;
+      bottom: -10px;
+      background: rgb(168, 109, 255);
+      filter: blur(12.5px);
+      z-index: 2;
+      clip-path: inset(-200% -30% 10px -30% round 29px);
+      opacity: 0;
+      transition: opacity 0.4s;
+      transform: translateZ(0);
+    }
+    .generate-button span {
+      position: relative;
+      z-index: 1;
+      font-family: "Poppins", Arial;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 0.005em;
+      display: block;
+    }
+    .generate-button span:before {
+      content: "";
+      background-image: linear-gradient(to right, transparent, #1d1d1d);
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.4;
+      transition: opacity 0.4s;
+    }
+    .generate-button .stroke {
+      mix-blend-mode: hard-light;
+    }
+    .generate-button .stroke svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke-width: 0.75px;
+      stroke: #e2d9ff;
+      stroke-dasharray: 1.5 14;
+      stroke-dashoffset: 22;
+      opacity: 0;
+    }
+    .generate-button .stroke svg:nth-child(2) {
+      stroke-width: 1px;
+      stroke-opacity: 0.5;
+      filter: blur(3px);
+    }
+    .generate-button svg {
+      display: block;
+      overflow: visible;
+      pointer-events: none;
+    }
+    .generate-button svg.dots {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      fill: #d3b2ff;
+      opacity: var(--generate-button-dots-opacity);
+    }
+    .generate-button svg.icon {
+      width: 18px;
+      height: 20px;
+      margin-right: 10px;
+      fill: currentColor;
+    }
+    .generate-button svg.icon path:nth-child(1) {
+      opacity: var(--generate-button-star-1-opacity);
+      transform: scale(var(--generate-button-star-1-scale)) translateZ(0);
+      transform-origin: 25% 14.58%;
+    }
+    .generate-button svg.icon path:nth-child(2) {
+      opacity: var(--generate-button-star-2-opacity);
+      transform: scale(var(--generate-button-star-2-scale)) translateZ(0);
+      transform-origin: 60.42% 50%;
+    }
+    .generate-button svg.icon path:nth-child(3) {
+      opacity: var(--generate-button-star-3-opacity);
+      transform: scale(var(--generate-button-star-3-scale)) translateZ(0);
+      transform-origin: 25% 85.42%;
+    }
+    .generate-button:hover {
+      --generate-button-scale: 1.01;
+      --generate-button-shadow-wide: rgba(208, 173, 255, 0.4);
+      --generate-button-shadow-inset: rgba(255, 255, 255, 0.35);
+      --generate-button-shadow-outline: 3px;
+      color: #fff;
+      background-color: #6d44f4;
+    }
+    .generate-button:hover .stroke svg {
+      animation: stroke 2s linear infinite;
+    }
+    .generate-button:hover:before {
+      opacity: 1;
+    }
+    .generate-button:hover span:before {
+      opacity: 0;
+    }
+    .generate-button:hover:active {
+      --generate-button-scale: 1.05;
+    }
+    @keyframes stroke {
+      0% {
+        opacity: 0;
+      }
+      25%,
+      75% {
+        opacity: 1;
+      }
+      95%,
+      100% {
+        stroke-dashoffset: 6;
+        opacity: 0;
+      }
+    }
+    </style>
+
+    <br><fieldset>
+<div class="quiz-container" id="quiz">
+    
+  <div class="quiz-header">
+    <br><br><br><br><br><br>
+    <h2 id="question">Question text</h2>
+    <br><br><br><br><br><br>
+    <ul>
+      <li>
+        <input type="radio" name="answer" id="a" class="answer" />
+        <label for="a" id="a_text">Question</label>
+      </li>
+
+      <li>
+        <input type="radio" name="answer" id="b" class="answer" />
+        <label for="b" id="b_text">Question</label>
+      </li>
+
+      <li>
+        <input type="radio" name="answer" id="c" class="answer" />
+        <label for="c" id="c_text">Question</label>
+      </li>
+
+      <li>
+        <input type="radio" name="answer" id="d" class="answer" />
+        <label for="d" id="d_text">Question</label>
+      </li>
+    </ul>
+  </div><br><br><br><br><br>
+  <button id="submit">Submit</button><br><br><br><br><br><br>
+  </div>
+</div>
+</fieldset>
+<!-- =========================
+          Watermark
+========================= -->
+<script>
+const quizData = [
+{
+question: "What does CSS stand for?",
+a: "Creative Style Sheets",
+b: "Cascading Style Sheets",
+c: "Computer System Styles",
+d: "Colorful Styling System",
+correct: "b"
+},
+
+{
+question: "Which CSS property is used to change the font size of text?",
+a: "text-style",
+b: "font-weight",
+c: "text-size",
+d: "font-size",
+correct: "d"
+},
+
+{
+question: "In CSS, how do you select an element with the class 'highlight'?",
+a: ".highlight",
+b: "#highlight",
+c: "<highlight>",
+d: "highlight",
+correct: "a"
+},
+
+{
+question: "Which CSS property is used to change the background color of an element?",
+a: "background-color",
+b: "color",
+c: "background",
+d: "bgcolor",
+correct: "a"
+},
+
+{
+question: "What is the purpose of the 'box-sizing' property in CSS?",
+a: "To control the spacing between elements.",
+b: "To control the positioning of elements.",
+c: "To control the size of text boxes.",
+d: "To control how the total width and height of elements are calculated.",
+correct: "d"
+},
+
+{
+question: "Which CSS property is used to set the distance between the lines of text?",
+a: "line-spacing",
+b: "text-spacing",
+c: "line-height",
+d: "text-height",
+correct: "c"
+},
+
+{
+question: "What is the CSS pseudo-class used to select an element when a user hovers over it?",
+a: ":hover",
+b: ":active",
+c: ":focus",
+d: ":mouseover",
+correct: "a"
+},
+
+{
+question: "Which CSS property is used to add shadows to an element?",
+a: "box-shadow",
+b: "element-shadow",
+c: "shadow-effect",
+d: "shadow-box",
+correct: "a"
+},
+
+{
+question: "In CSS, what is the purpose of the 'margin' property?",
+a: "To control the space between an element's border and its content.",
+b: "To control the space between an element's content and its parent element.",
+c: "To control the space between an element's border and the page edges.",
+d: "To control the space between an element's padding and its border.",
+correct: "b"
+},
+
+{
+question: "Which CSS property is used to change the style of a list item marker?",
+a: "marker-style",
+b: "list-style-type",
+c: "item-style",
+d: "list-item-marker",
+correct: "b"
+},
+
+{
+question: "What is the purpose of the 'float' property in CSS?",
+a: "To control the visibility of an element.",
+b: "To control the position of an element within its parent element.",
+c: "To control the size of an element.",
+d: "To control the color of an element.",
+correct: "b"
+},
+
+{
+question: "In CSS, what is the purpose of the 'opacity' property?",
+a: "To control the visibility of an element.",
+b: "To control the position of an element.",
+c: "To control the color of an element.",
+d: "To control the transparency of an element.",
+correct: "d"
+},
+
+{
+question: "Which CSS property is used to add rounded corners to an element?",
+a: "corner-radius",
+b: "border-round",
+c: "border-radius",
+d: "corner-style",
+correct: "c"
+},
+
+{
+question: "What is the purpose of the 'position' property in CSS?",
+a: "To control the size of an element.",
+b: "To control the visibility of an element.",
+c: "To control the positioning of an element within its parent element.",
+d: "To control the color of an element.",
+correct: "c"
+},
+
+{
+question: "In CSS, how do you select the first child element of a parent element?",
+a: "first-child",
+b: "child-first",
+c: "first-of-type",
+d: "child-type-first",
+correct: "a"
+},
+
+{
+question: "Which CSS property is used to change the color of the text?",
+a: "font-color",
+b: "text-color",
+c: "color",
+d: "text-style",
+correct: "c"
+},
+
+{
+question: "What is the purpose of the 'z-index' property in CSS?",
+a: "To control the spacing between elements.",
+b: "To control the visibility of an element.",
+c: "To control the order in which elements are layered in the z-axis.",
+d: "To control the position of an element.",
+correct: "c"
+},
+
+{
+question: "Which CSS property is used to control the space between an element's content and its border?",
+a: "padding",
+b: "margin",
+c: "border-spacing",
+d: "spacing",
+correct: "a"
+},
+
+{
+question: "In CSS, what is the purpose of the 'display' property?",
+a: "To control the visibility of an element.",
+b: "To control the size of an element.",
+c: "To control the position of an element.",
+d: "To control how an element is displayed and its layout.",
+correct: "d"
+},
+
+{
+question: "Which CSS property is used to add a background image to an element?",
+a: "image",
+b: "background-img",
+c: "bg-image",
+d: "background-image",
+correct: "d"
+},
+
+{
+question: "What is the purpose of the 'text-transform' property in CSS?",
+a: "To control the visibility of an element.",
+b: "To control the size of text.",
+c: "To control the position of an element.",
+d: "To control the capitalization of text.",
+correct: "d"
+},
+
+{
+question: "In CSS, what is the purpose of the 'media queries'?",
+a: "To change the color of an element.",
+b: "To apply different styles based on the screen size and device capabilities.",
+c: "To control the position of an element.",
+d: "To control the spacing between elements.",
+correct: "b"
+},
+
+{
+question: "Which CSS property is used to change the style of an element's border?",
+a: "border-style",
+b: "line-style",
+c: "border-design",
+d: "style-border",
+correct: "a"
+},
+
+{
+question: "What is the CSS pseudo-class used to select the last child element of a parent element?",
+a: ":last-child",
+b: ":end-child",
+c: ":final-child",
+d: ":bottom-child",
+correct: "a"
+},
+
+{
+question: "In CSS, how do you select an element with the ID 'header'?",
+a: "#header",
+b: ".header",
+c: "<header>",
+d: "header",
+correct: "a"
+},
+
+{
+question: "What is the purpose of the 'transition' property in CSS?",
+a: "To control the visibility of an element.",
+b: "To control the size of an element.",
+c: "To create smooth animations when an element changes its state.",
+d: "To control the position of an element.",
+correct: "c"
+},
+
+{
+question: "Which CSS property is used to control the space between elements within a flex container?",
+a: "gap",
+b: "spacing",
+c: "flex-gap",
+d: "flex-spacing",
+correct: "a"
+},
+
+{
+question: "What is the purpose of the 'text-align' property in CSS?",
+a: "To control the visibility of an element.",
+b: "To control the alignment of an element's text content.",
+c: "To control the size of text.",
+d: "To control the position of an element.",
+correct: "b"
+},
+
+{
+question: "Which CSS property is used to control the size of an element's border?",
+a: "border-size",
+b: "border-width",
+c: "line-width",
+d: "element-size",
+correct: "b"
+},
+
+{
+question: "In CSS, what is the purpose of the 'flexbox'?",
+a: "To create animations.",
+b: "To control the position of an element.",
+c: "To create flexible layouts with a parent-child structure.",
+d: "To control the visibility of an element.",
+correct: "c"
+},
+
+
+
+  ];
+  
+  const quiz = document.getElementById("quiz");
+  const answerEls = document.querySelectorAll(".answer");
+  const questionEl = document.getElementById("question");
+  const a_text = document.getElementById("a_text");
+  const b_text = document.getElementById("b_text");
+  const c_text = document.getElementById("c_text");
+  const d_text = document.getElementById("d_text");
+  const submitBtn = document.getElementById("submit");
+  
+  let currentQuiz = 0;
+  let score = 0;
+  
+  loadQuiz();
+  
+  function loadQuiz() {
+    deselectAnswers();
+  
+    const currentQuizData = quizData[currentQuiz];
+  
+    questionEl.innerText = currentQuizData.question;
+    a_text.innerText = currentQuizData.a;
+    b_text.innerText = currentQuizData.b;
+    c_text.innerText = currentQuizData.c;
+    d_text.innerText = currentQuizData.d;
+  }
+  function myFunc() {
+    window.location.href = "prin.html";
+  }
+  function deselectAnswers() {
+    answerEls.forEach((answerEl) => (answerEl.checked = false));
+  }
+  
+  function getSelected() {
+    let answer;
+  
+    answerEls.forEach((answerEl) => {
+      if (answerEl.checked) {
+        answer = answerEl.id;
+      }
+    });
+    return answer;
+  }const progressBar = document.getElementById("progressBar");
+
+
+
+
+
+
+
+  const submitButton = document.getElementById("submit");
+
+
+let answeredQuestions = 0;
+const totalQuestions = 30; // Change this to the total number of questions in your quiz
+const answer = getSelected();
+submitButton.addEventListener("click", () => {
+ 
+  if (answer) {
+   
+  } 
+});
+
+function updateProgressBar() {
+  const progressPercentage = (answeredQuestions / totalQuestions) * 100;
+  progressBar.style.width = progressPercentage + "%";
+
+ 
+}
+
+
+
+
+
+
+  submitBtn.addEventListener("click", () => {
+    const answer = getSelected();
+    if (answer) {
+        answeredQuestions++;
+    updateProgressBar();
+      if (answer === quizData[currentQuiz].correct) {
+        score++;
+      }
+      currentQuiz++;
+      if (currentQuiz < quizData.length) {
+        loadQuiz();
+      } else {
+        if(score>22)
+        {
+        quiz.innerHTML = `
+              <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+              <h2>EXCELLENT<h2>
+              <button onclick="myFunc()">Next</button>
+              
+
+            
+          `;}
+          else if(score>10 && score<22)
+          {
+            quiz.innerHTML = `
+              <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+              <h2>EXCELLENT<h2>
+              <button onclick="myFunc()">Next</button>
+              
+          `;}
+          else {
+            quiz.innerHTML = `
+                  <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+                 <h2>try again <h2>
+                  <button onclick="location.reload()">Reload</button>
+              `;}
+      }
+    }else {
+    alert("Please select an answer before submitting.");
+  }
+  
+  
+  });
+  
+  // ===========================
+  //           Watermark
+  // ===========================
+  const DOT_AMOUNT = 40;
+  
+  const createSVG = (width, height, className, childType, childAttributes) => {
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  
+    svg.classList.add(className);
+  
+    const child = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      childType
+    );
+  
+    svg.setAttributeNS(
+      "http://www.w3.org/2000/svg",
+      "viewBox",
+      `0 0 ${width} ${height}`
+    );
+  
+    for (const attr in childAttributes) {
+      child.setAttribute(attr, childAttributes[attr]);
+    }
+  
+    svg.appendChild(child);
+  
+    return { svg, child };
+  };
+  
+  document.querySelectorAll(".generate-button").forEach((button) => {
+    const width = button.offsetWidth;
+    const height = button.offsetHeight;
+  
+    const style = getComputedStyle(button);
+  
+    const { svg, child: circle } = createSVG(width, height, "dots", "circle", {
+      cx: "0",
+      cy: "0",
+      r: "0"
+    });
+  
+    const strokeGroup = document.createElement("div");
+    strokeGroup.classList.add("stroke");
+  
+    const { svg: stroke } = createSVG(width, height, "stroke-line", "rect", {
+      x: "0",
+      y: "0",
+      width: "100%",
+      height: "100%",
+      rx: parseInt(style.borderRadius, 10),
+      ry: parseInt(style.borderRadius, 10),
+      pathLength: "10"
+    });
+  
+    button.appendChild(svg);
+  
+    strokeGroup.appendChild(stroke);
+    strokeGroup.appendChild(stroke.cloneNode(true));
+  
+    button.appendChild(strokeGroup);
+  
+    const timeline = gsap.timeline({ paused: true });
+  
+    for (var i = 0; i < DOT_AMOUNT; i++) {
+      var p = circle.cloneNode(true);
+      svg.appendChild(p);
+  
+      gsap.set(p, {
+        attr: {
+          cx: gsap.utils.random(width * 0.25, width * 0.75),
+          cy: gsap.utils.random(height * 0.5, height * 0.5),
+          r: 0
+        }
+      });
+  
+      var durationRandom = gsap.utils.random(10, 12);
+  
+      var tl = gsap.timeline();
+  
+      tl.to(
+        p,
+        {
+          duration: durationRandom,
+          rotation: i % 2 === 0 ? 350 : -420,
+          attr: {
+            r: gsap.utils.random(0.75, 1.5),
+            cy: -width * gsap.utils.random(1.25, 1.75)
+          },
+          physics2D: {
+            angle: -90,
+            gravity: gsap.utils.random(-4, -8),
+            velocity: gsap.utils.random(10, 25)
+          }
+        },
+        "-=" + durationRandom / 2
+      ).to(
+        p,
+        {
+          duration: durationRandom / 3,
+          attr: {
+            r: 0
+          }
+        },
+        "-=" + durationRandom / 4
+      );
+  
+      timeline.add(tl, i / 3);
+    }
+  
+    svg.removeChild(circle);
+  
+    const finalTimeline = gsap.to(timeline, {
+      duration: 10,
+      repeat: -1,
+      time: timeline.duration(),
+      paused: true
+    });
+  
+    const stars = gsap.to(button, {
+      repeat: -1,
+      repeatDelay: 0.75,
+      paused: true,
+      keyframes: [
+        {
+          "--generate-button-star-2-scale": ".5",
+          "--generate-button-star-2-opacity": ".25",
+          "--generate-button-star-3-scale": "1.25",
+          "--generate-button-star-3-opacity": "1",
+          duration: 0.3
+        },
+        {
+          "--generate-button-star-1-scale": "1.5",
+          "--generate-button-star-1-opacity": ".5",
+          "--generate-button-star-2-scale": ".5",
+          "--generate-button-star-3-scale": "1",
+          "--generate-button-star-3-opacity": ".5",
+          duration: 0.3
+        },
+        {
+          "--generate-button-star-1-scale": "1",
+          "--generate-button-star-1-opacity": ".25",
+          "--generate-button-star-2-scale": "1.15",
+          "--generate-button-star-2-opacity": "1",
+          duration: 0.3
+        },
+        {
+          "--generate-button-star-2-scale": "1",
+          duration: 0.35
+        }
+      ]
+    });
+  
+    button.addEventListener("pointerenter", () => {
+      gsap.to(button, {
+        "--generate-button-dots-opacity": "1",
+        duration: 0.5,
+        onStart: () => {
+          finalTimeline.restart().play();
+          setTimeout(() => stars.restart().play(), 500);
+        }
+      });
+    });
+  
+    button.addEventListener("pointerleave", () => {
+      gsap.to(button, {
+        "--generate-button-dots-opacity": "0",
+        "--generate-button-star-1-opacity": ".25",
+        "--generate-button-star-1-scale": "1",
+        "--generate-button-star-2-opacity": "1",
+        "--generate-button-star-2-scale": "1",
+        "--generate-button-star-3-opacity": ".5",
+        "--generate-button-star-3-scale": "1",
+        duration: 0.15,
+        onComplete: () => {
+          finalTimeline.pause();
+          stars.pause();
+        }
+      });
+    });
+  });
+
+
+
+
+  </script>
+
+</body>

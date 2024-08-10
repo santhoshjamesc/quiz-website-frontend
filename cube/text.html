@@ -1,0 +1,479 @@
+<html>
+    <title>TEST YOURSELF</title>
+
+    <header>
+  
+      
+        <nav class="navbar">
+          <a href="index.html" class="nav-item" style="--i: 0">Home  </a>
+          <a href="#" class="nav-item" style="--i: 1">Explore</a>
+          <a href="#" class="nav-item" style="--i: 2">  About</a>
+         
+        </nav>
+      </header>
+      <br><br><br>
+
+<style> 
+
+
+
+
+
+.navbar{
+    float: right;
+}
+
+.nav-item {
+
+  position: relative;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 25px;
+  letter-spacing: 0.1px;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  transition: all 0.5s ease;
+}
+
+.nav-item:hover {
+  color:  rgba(72, 82, 85, 0.9);
+  font-size: 22px;
+
+}
+
+.nav-item::after {
+  content: "";
+  position: absolute;
+  bottom: -0.3rem;
+  left: 50%;
+  width: 0;
+  height: 0.35rem;
+  transform: translateX(-50%);
+  background-color: rgba(72, 82, 85, 0.9);
+  transition: all 0.5s ease;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+
+
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    background-image:
+            linear-gradient(45deg,
+              rgba(0, 4, 53, 0.75),
+              rgb(0, 0, 0)), url('tech.jpg');
+    color: #fff;
+    padding: 20px;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 20px;
+    flex-flow: row wrap;
+    margin-left: 20%;
+    margin-right: 20%;
+    
+}
+@media (max-width:768px){
+    .card{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+
+
+
+.card {
+
+    font-size: 23px;
+            text-align: center;
+            border-radius: 12%;
+            width: 300px;
+            height: 225px;
+            max-width: 20000px; /* Set a maximum width for the container */
+            margin: 10px;; /* Center the container horizontally */
+            padding: 75px; /* Add some padding inside the container */
+            border: 3px solid rgb(0, 0, 0); /* Add a border for styling */
+            box-shadow: 2 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+        }
+
+        /* Responsive styles for smaller screens (smartphones) */
+        @media screen and (max-width: 768px) {
+            .container {
+                max-width: 100%; /* Allow the container to take the full width */
+                padding: 10px; /* Reduce padding for smaller screens */
+            }
+        }
+.card:hover
+{    width: 360px;
+            height: 255px;
+    border: 7px solid rgb(238, 255, 0); 
+      box-shadow: 0 0 50px 15px #ffffff;
+      font-size: 35px;
+      cursor: pointer;
+
+}
+#tt{
+    text-align: center;
+     outline-color: coral; 
+    border: #00c3ff;
+    font-size: 50px;
+    
+}
+
+</style>
+
+<h1 id="tt">TEST YOURSELF</h1>
+<br><br>
+<div class="container">
+    
+    <div id="1"  class="card" style="background: rgb(195,188,34);
+    background: linear-gradient(0deg, rgb(233, 74, 0) 0%, rgba(224,119,27,1) 50%, rgba(251,0,0,1) 97%);;" >
+     
+    <div  >
+            <h4>HTML</h4>
+      </div>
+        
+    </div>
+    
+    <div id="2" class="card" style="background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);">
+    
+        <h4>CSS</h4>
+   
+</div>
+
+    <div id="3" class="card" style="background: #1E9600;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FF0000, #FFF200, #1E9600);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FF0000, #FFF200, #1E9600); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    ">
+
+            <h4>JavaScript</h4>
+       
+    </div>
+    
+     
+        <div id="4" class="card" style="background: #00c3ff;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #ffff1c, #00c3ff);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #ffff1c, #00c3ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        ">
+    
+                <h4>PHP</h4>
+           
+        </div>
+
+
+        <div id="5" class="card" style="background: rgb(88,0,189);
+        background: radial-gradient(circle, rgba(88,0,189,1) 21%, rgba(247,13,60,1) 100%);">
+    
+                <h4>OOPS</h4>
+           
+        </div>
+
+        
+
+     
+        <div id="6" class="card" style="background: rgb(0,255,196);
+    background: linear-gradient(0deg, rgba(0,255,196,1) 7%, rgba(52,159,5,1) 75%);">
+     
+        <div  >
+                <h4>DATA STRUCTURES</h4>
+          </div>
+            
+        </div>
+        <div id="7" class="card" style="background-image: linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%);">
+    
+            <h4>DBMS</h4>
+       
+    </div>
+
+
+
+    <div id="8"  class="card" style="background: rgb(195,188,34);
+    background: linear-gradient(0deg, rgb(233, 74, 0) 0%, rgba(224,119,27,1) 50%, rgba(251,0,0,1) 97%);;" >
+     
+    <div  >
+            <h4>KOTLIN</h4>
+      </div>
+        
+    </div>
+    
+    <div id="9" class="card" style="background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);">
+    
+        <h4>PYTHON</h4>
+   
+</div>
+
+    <div id="10" class="card" style="background: #1E9600;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FF0000, #FFF200, #1E9600);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FF0000, #FFF200, #1E9600); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    ">
+
+            <h4>RUST</h4>
+       
+    </div>
+    
+     
+        <div id="11" class="card" style="background: #00c3ff;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #ffff1c, #00c3ff);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #ffff1c, #00c3ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        ">
+    
+                <h4>FLUTTER</h4>
+           
+        </div>
+
+
+        <div id="12" class="card" style="background: rgb(88,0,189);
+        background: radial-gradient(circle, rgba(88,0,189,1) 21%, rgba(247,13,60,1) 100%);">
+    
+                <h4>NUMERICAL TEST</h4>
+           
+        </div>
+
+        
+
+     
+        <div id="13" class="card" style="background: rgb(0,255,196);
+    background: linear-gradient(0deg, rgba(0,255,196,1) 7%, rgba(52,159,5,1) 75%);">
+     
+        <div  >
+                <h4>LOGICAL TEST</h4>
+          </div>
+            
+        </div>
+
+
+
+        <script>
+      
+
+
+
+
+            var box = document.getElementById("1");
+    
+    // Add a click event listener to the box
+    box.addEventListener("click", function() {
+        // Redirect to the desired page when the box is clicked
+        window.location.href = "htmlmcq.html"; // Replace with your destination URL
+    });
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    var box = document.getElementById("2");
+    
+            // Add a click event listener to the box
+            box.addEventListener("click", function() {
+                // Redirect to the desired page when the box is clicked
+                window.location.href = "cssmcq.html"; // Replace with your destination URL
+            });
+    
+    
+    
+    
+    
+    
+    
+    
+    
+            var box = document.getElementById("3");
+    
+            // Add a click event listener to the box
+            box.addEventListener("click", function() {
+                // Redirect to the desired page when the box is clicked
+                window.location.href = "jsmcq.html"; // Replace with your destination URL
+            });
+    
+    
+    
+    
+    
+    
+    
+    
+            var box = document.getElementById("4");
+    
+            // Add a click event listener to the box
+            box.addEventListener("click", function() {
+                // Redirect to the desired page when the box is clicked
+                window.location.href = "phpmcq.html"; // Replace with your destination URL
+            });
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+            var box = document.getElementById("5");
+    
+            // Add a click event listener to the box
+            box.addEventListener("click", function() {
+                // Redirect to the desired page when the box is clicked
+                window.location.href = "oopsmcq.html"; // Replace with your destination URL
+            });
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+            var box = document.getElementById("6");
+    
+            // Add a click event listener to the box
+            box.addEventListener("click", function() {
+                // Redirect to the desired page when the box is clicked
+                window.location.href = "dsmcq.html"; // Replace with your destination URL
+            });
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+            var box = document.getElementById("7");
+    
+            // Add a click event listener to the box
+            box.addEventListener("click", function() {
+                // Redirect to the desired page when the box is clicked
+                window.location.href = "dbmsmcq.html"; // Replace with your destination URL
+            });
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+            var box = document.getElementById("8");
+    
+            // Add a click event listener to the box
+            box.addEventListener("click", function() {
+                // Redirect to the desired page when the box is clicked
+                window.location.href = "kotlinmcq.html"; // Replace with your destination URL
+            });
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+            var box = document.getElementById("9");
+    
+            // Add a click event listener to the box
+            box.addEventListener("click", function() {
+                // Redirect to the desired page when the box is clicked
+                window.location.href = "pythonMCQ.html"; // Replace with your destination URL
+            });
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+            var box = document.getElementById("10");
+    
+            // Add a click event listener to the box
+            box.addEventListener("click", function() {
+                // Redirect to the desired page when the box is clicked
+                window.location.href = "rustmcq.html"; // Replace with your destination URL
+            });
+    
+    
+    
+    
+    
+            var box = document.getElementById("11");
+    
+    // Add a click event listener to the box
+    box.addEventListener("click", function() {
+        // Redirect to the desired page when the box is clicked
+        window.location.href = "fluttermcq.html"; // Replace with your destination URL
+    });
+            
+    
+    
+    
+    
+    
+    
+    var box = document.getElementById("12");
+    
+            // Add a click event listener to the box
+            box.addEventListener("click", function() {
+                // Redirect to the desired page when the box is clicked
+                window.location.href = "numericalmcq.html"; // Replace with your destination URL
+            });
+    
+    
+    
+            var box = document.getElementById("13");
+    
+            // Add a click event listener to the box
+            box.addEventListener("click", function() {
+                // Redirect to the desired page when the box is clicked
+                window.location.href = "logicmcq.html"; // Replace with your destination URL
+            });
+    
+    
+    
+    
+    
+    
+    
+    
+        </script>
+
+
+</div>
+</html>

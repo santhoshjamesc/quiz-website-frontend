@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+
+<button id="bb" onclick="location.href='text.html'">back</button>
+<head><head><div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div></head> </head>
+<title>question</title>
+<body>
+    
+  <style>@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+#bb {
+  margin-left: -80%;
+  width: 150px;
+}
+
+h5{
+  color: #fff;
+  font-size: 30px;
+}
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .progress-container {
+  width: 100%;
+ 
+}
+.quiz-container
+{
+margin-left: 15%;
+
+
+}
+.progress-bar {
+  width: 0;
+  height: 40px;
+  background-color: #ffffff;
+  transition: width 1.2s;
+}
+    .answer{
+        height: 30px;
+        width: 30px;
+    }
+    body {
+    
+       
+      background-color: #000000;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+   
+    
+   
+    
+    h2 {
+    
+      padding-bottom: 0.5rem;
+      margin-left: 1%;
+      color: #fff;
+      font-size: 50px;
+    }
+    
+    ul {
+        
+      list-style-type: none;
+      padding: 0;
+      margin-left: 1rem;
+    }
+    
+    ul li {
+      font-size: 2.6rem;
+      color: #ffffff;
+      margin-top: 0.8rem;
+    }
+    
+    ul li label {
+      cursor: pointer;
+    }
+    
+    button {
+      background-color: #000000;
+      color: #fff;
+      border: 2px solid rgb(255, 255, 255);
+      display: block;
+      width: 30%;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-family: inherit;
+      padding: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-left: 25%;
+    }
+    
+    button:hover {
+      background-color: #ffffff;
+      color: rgb(0, 0, 0);
+    }
+    
+    button:focus {
+      outline: none;
+      background-color: #ffffff;
+    }
+   
+    /* =========================
+              Watermark
+    ========================= */
+   
+    .generate-button {
+      --generate-button-star-1-opacity: 0.25;
+      --generate-button-star-1-scale: 1;
+      --generate-button-star-2-opacity: 1;
+      --generate-button-star-2-scale: 1;
+      --generate-button-star-3-opacity: 0.5;
+      --generate-button-star-3-scale: 1;
+      --generate-button-dots-opacity: 0;
+      appearance: none;
+      outline: none;
+      border: none;
+      padding: 14px 24px 14px 20px;
+      border-radius: 29px;
+      margin: 0;
+      background-color: #222222;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      z-index: 1;
+      transform: scale(var(--generate-button-scale, 1)) translateZ(0);
+      box-shadow: 0px 0px 120px var(--generate-button-shadow-wide, transparent),
+        0px 4px 12px rgba(0, 0, 0, 0.05), 0px 1px 2px rgba(0, 0, 0, 0.1),
+        inset 0px 1px 1px
+          var(--generate-button-shadow-inset, rgba(255, 255, 255, 0.04)),
+        0 0 0 var(--generate-button-shadow-outline, 0px) rgba(109, 68, 244, 0.4);
+      transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s, color 0.3s;
+    }
+    .generate-button:before {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 20%;
+      height: 20px;
+      left: 20%;
+      bottom: -10px;
+      background: rgb(168, 109, 255);
+      filter: blur(12.5px);
+      z-index: 2;
+      clip-path: inset(-200% -30% 10px -30% round 29px);
+      opacity: 0;
+      transition: opacity 0.4s;
+      transform: translateZ(0);
+    }
+    .generate-button span {
+      position: relative;
+      z-index: 1;
+      font-family: "Poppins", Arial;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 0.005em;
+      display: block;
+    }
+    .generate-button span:before {
+      content: "";
+      background-image: linear-gradient(to right, transparent, #1d1d1d);
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.4;
+      transition: opacity 0.4s;
+    }
+    .generate-button .stroke {
+      mix-blend-mode: hard-light;
+    }
+    .generate-button .stroke svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke-width: 0.75px;
+      stroke: #e2d9ff;
+      stroke-dasharray: 1.5 14;
+      stroke-dashoffset: 22;
+      opacity: 0;
+    }
+    .generate-button .stroke svg:nth-child(2) {
+      stroke-width: 1px;
+      stroke-opacity: 0.5;
+      filter: blur(3px);
+    }
+    .generate-button svg {
+      display: block;
+      overflow: visible;
+      pointer-events: none;
+    }
+    .generate-button svg.dots {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      fill: #d3b2ff;
+      opacity: var(--generate-button-dots-opacity);
+    }
+    .generate-button svg.icon {
+      width: 18px;
+      height: 20px;
+      margin-right: 10px;
+      fill: currentColor;
+    }
+    .generate-button svg.icon path:nth-child(1) {
+      opacity: var(--generate-button-star-1-opacity);
+      transform: scale(var(--generate-button-star-1-scale)) translateZ(0);
+      transform-origin: 25% 14.58%;
+    }
+    .generate-button svg.icon path:nth-child(2) {
+      opacity: var(--generate-button-star-2-opacity);
+      transform: scale(var(--generate-button-star-2-scale)) translateZ(0);
+      transform-origin: 60.42% 50%;
+    }
+    .generate-button svg.icon path:nth-child(3) {
+      opacity: var(--generate-button-star-3-opacity);
+      transform: scale(var(--generate-button-star-3-scale)) translateZ(0);
+      transform-origin: 25% 85.42%;
+    }
+    .generate-button:hover {
+      --generate-button-scale: 1.01;
+      --generate-button-shadow-wide: rgba(208, 173, 255, 0.4);
+      --generate-button-shadow-inset: rgba(255, 255, 255, 0.35);
+      --generate-button-shadow-outline: 3px;
+      color: #fff;
+      background-color: #6d44f4;
+    }
+    .generate-button:hover .stroke svg {
+      animation: stroke 2s linear infinite;
+    }
+    .generate-button:hover:before {
+      opacity: 1;
+    }
+    .generate-button:hover span:before {
+      opacity: 0;
+    }
+    .generate-button:hover:active {
+      --generate-button-scale: 1.05;
+    }
+    @keyframes stroke {
+      0% {
+        opacity: 0;
+      }
+      25%,
+      75% {
+        opacity: 1;
+      }
+      95%,
+      100% {
+        stroke-dashoffset: 6;
+        opacity: 0;
+      }
+    }
+    </style>
+
+    <br><fieldset>
+<div class="quiz-container" id="quiz">
+    
+  <div class="quiz-header">
+    <br><br><br><br><br><br>
+    <h2 id="question">Question text</h2>
+    <br><br><br><br><br><br>
+    <ul>
+      <li>
+        <input type="radio" name="answer" id="a" class="answer" />
+        <label for="a" id="a_text">Question</label>
+      </li>
+
+      <li>
+        <input type="radio" name="answer" id="b" class="answer" />
+        <label for="b" id="b_text">Question</label>
+      </li>
+
+      <li>
+        <input type="radio" name="answer" id="c" class="answer" />
+        <label for="c" id="c_text">Question</label>
+      </li>
+
+      <li>
+        <input type="radio" name="answer" id="d" class="answer" />
+        <label for="d" id="d_text">Question</label>
+      </li>
+    </ul>
+  </div><br><br><br><br><br>
+  <button id="submit">Submit</button><br><br><br><br><br><br>
+  </div>
+</div>
+</fieldset>
+<!-- =========================
+          Watermark
+========================= -->
+<script>
+const quizData = [
+{
+question: "What is the fundamental concept of Object-Oriented Programming (OOP)?",
+a: "Using only functions to structure code",
+b: "Organizing code around data and behavior",
+c: "Creating complex algorithms",
+d: "Storing data in a single structure",
+correct: "b"
+},
+
+{
+question: "What is an object in OOP?",
+a: "A built-in data type",
+b: "A variable that stores a single value",
+c: "An instance of a class with data and methods",
+d: "A reserved keyword",
+correct: "c"
+},
+
+{
+question: "What is a class in OOP?",
+a: "A single object",
+b: "A template for creating objects",
+c: "A predefined data structure",
+d: "A mathematical function",
+correct: "b"
+},
+
+{
+question: "Which OOP concept allows a class to inherit properties and methods from another class?",
+a: "Encapsulation",
+b: "Polymorphism",
+c: "Inheritance",
+d: "Abstraction",
+correct: "c"
+},
+
+{
+question: "What is the process of creating an instance of a class known as?",
+a: "Inheritance",
+b: "Abstraction",
+c: "Instantiation",
+d: "Polymorphism",
+correct: "c"
+},
+
+{
+question: "What does the term 'encapsulation' refer to in OOP?",
+a: "Hiding sensitive data within a class",
+b: "Creating multiple instances of a class",
+c: "Inheriting properties from a parent class",
+d: "Using interfaces to define behavior",
+correct: "a"
+},
+
+{
+question: "What is a method in OOP?",
+a: "A data storage unit",
+b: "A template for creating classes",
+c: "A variable that stores a value",
+d: "A function that belongs to a class",
+correct: "d"
+},
+
+{
+question: "What is the process of defining characteristics and behavior of a class known as?",
+a: "Inheritance",
+b: "Encapsulation",
+c: "Abstraction",
+d: "Class definition",
+correct: "c"
+},
+
+{
+question: "Which OOP concept allows a single method to have different implementations?",
+a: "Abstraction",
+b: "Encapsulation",
+c: "Polymorphism",
+d: "Instantiation",
+correct: "c"
+},
+
+{
+question: "What is a constructor in OOP?",
+a: "A type of data structure",
+b: "A method that creates an instance of a class",
+c: "An inherited property",
+d: "A reserved keyword",
+correct: "b"
+},
+
+{
+question: "What does the term 'method overloading' mean in OOP?",
+a: "Creating multiple methods with the same name but different parameters",
+b: "Overriding a method's behavior in a child class",
+c: "Hiding data within a class",
+d: "Defining methods within a constructor",
+correct: "a"
+},
+
+{
+question: "What does the term 'method overriding' mean in OOP?",
+a: "Creating multiple methods with the same name but different parameters",
+b: "Overloading a method's behavior in a parent class",
+c: "Replacing a method's behavior in a child class",
+d: "Defining methods within a constructor",
+correct: "c"
+},
+
+{
+question: "What is a property or attribute in OOP?",
+a: "A method that belongs to a class",
+b: "An object that inherits from another object",
+c: "A variable that stores data in a class",
+d: "A reserved keyword",
+correct: "c"
+},
+
+{
+question: "Which OOP principle encourages creating separate classes for different concerns?",
+a: "Inheritance",
+b: "Abstraction",
+c: "Encapsulation",
+d: "Single Responsibility Principle",
+correct: "d"
+},
+
+{
+question: "What does the term 'getter' refer to in OOP?",
+a: "A method that modifies data in a class",
+b: "A method that retrieves the value of a property",
+c: "An attribute that is inherited from a parent class",
+d: "A reserved keyword",
+correct: "b"
+},
+
+{
+question: "What does the term 'setter' refer to in OOP?",
+a: "A method that modifies data in a class",
+b: "A method that retrieves the value of a property",
+c: "An attribute that is inherited from a parent class",
+d: "A reserved keyword",
+correct: "a"
+},
+
+{
+question: "Which OOP concept is used to restrict access to certain data or methods?",
+a: "Encapsulation",
+b: "Abstraction",
+c: "Inheritance",
+d: "Polymorphism",
+correct: "a"
+},
+
+{
+question: "What is the process of creating a new class based on an existing class known as?",
+a: "Encapsulation",
+b: "Abstraction",
+c: "Inheritance",
+d: "Polymorphism",
+correct: "c"
+},
+
+{
+question: "What is a benefit of using OOP?",
+a: "Decreased code complexity",
+b: "Limited code reusability",
+c: "Fewer programming languages to learn",
+d: "Less memory usage",
+correct: "a"
+},
+
+{
+question: "Which OOP principle suggests that a class should not expose its internal implementation details?",
+a: "Single Responsibility Principle",
+b: "Open/Closed Principle",
+c: "Liskov Substitution Principle",
+d: "Interface Segregation Principle",
+correct: "b"
+},
+
+{
+question: "What is a 'base class' or 'superclass' in OOP?",
+a: "A class that inherits from another class",
+b: "A class from which other classes inherit",
+c: "A class with private methods only",
+d: "A reserved keyword",
+correct: "b"
+},
+
+{
+question: "What is a 'derived class' or 'subclass' in OOP?",
+a: "A class that inherits from another class",
+b: "A class from which other classes inherit",
+c: "A class with private methods only",
+d: "A reserved keyword",
+correct: "a"
+},
+
+{
+question: "What does the term 'abstract class' refer to in OOP?",
+a: "A class that cannot be instantiated and serves as a base for other classes",
+b: "A class with only abstract methods",
+c: "A class that is used to hide implementation details",
+d: "A reserved keyword",
+correct: "a"
+},
+
+{
+question: "What does the term 'interface' refer to in OOP?",
+a: "A class that cannot be instantiated and serves as a base for other classes",
+b: "A class with only abstract methods",
+c: "A contract specifying methods that a class must implement",
+d: "A reserved keyword",
+correct: "c"
+},
+
+{
+question: "What is a benefit of using inheritance in OOP?",
+a: "Reduced code complexity",
+b: "Limited code reusability",
+c: "No need for polymorphism",
+d: "More memory usage",
+correct: "a"
+},
+
+{
+question: "What is a 'constructor' in a class?",
+a: "A method used to destroy an object",
+b: "A method used to access private attributes",
+c: "A method used to create and initialize objects",
+d: "A method used to retrieve data from a class",
+correct: "c"
+},
+
+{
+question: "What is a 'destructor' in a class?",
+a: "A method used to destroy an object",
+b: "A method used to access private attributes",
+c: "A method used to create and initialize objects",
+d: "A method used to retrieve data from a class",
+correct: "a"
+},
+
+{
+question: "Which OOP principle suggests that a class should have only one reason to change?",
+a: "Single Responsibility Principle",
+b: "Open/Closed Principle",
+c: "Liskov Substitution Principle",
+d: "Interface Segregation Principle",
+correct: "a"
+},
+
+{
+question: "What is a 'static method' in a class?",
+a: "A method that modifies an object's data",
+b: "A method that is not associated with a specific instance",
+c: "A method used to create and initialize objects",
+d: "A method used to retrieve data from a class",
+correct: "b"
+},
+
+{
+question: "What is a 'static variable' in a class?",
+a: "A variable that cannot be modified",
+b: "A variable associated with a specific instance",
+c: "A variable that is not associated with a specific instance",
+d: "A variable that stores text data",
+correct: "c"
+},
+
+  ];
+  
+  const quiz = document.getElementById("quiz");
+  const answerEls = document.querySelectorAll(".answer");
+  const questionEl = document.getElementById("question");
+  const a_text = document.getElementById("a_text");
+  const b_text = document.getElementById("b_text");
+  const c_text = document.getElementById("c_text");
+  const d_text = document.getElementById("d_text");
+  const submitBtn = document.getElementById("submit");
+  
+  let currentQuiz = 0;
+  let score = 0;
+  
+  loadQuiz();
+  
+  function loadQuiz() {
+    deselectAnswers();
+  
+    const currentQuizData = quizData[currentQuiz];
+  
+    questionEl.innerText = currentQuizData.question;
+    a_text.innerText = currentQuizData.a;
+    b_text.innerText = currentQuizData.b;
+    c_text.innerText = currentQuizData.c;
+    d_text.innerText = currentQuizData.d;
+  }
+  function myFunc() {
+    window.location.href = "prin.html";
+  }
+  function deselectAnswers() {
+    answerEls.forEach((answerEl) => (answerEl.checked = false));
+  }
+  
+  function getSelected() {
+    let answer;
+  
+    answerEls.forEach((answerEl) => {
+      if (answerEl.checked) {
+        answer = answerEl.id;
+      }
+    });
+    return answer;
+  }const progressBar = document.getElementById("progressBar");
+
+
+
+
+
+
+
+  const submitButton = document.getElementById("submit");
+
+
+let answeredQuestions = 0;
+const totalQuestions = 30; // Change this to the total number of questions in your quiz
+const answer = getSelected();
+submitButton.addEventListener("click", () => {
+ 
+  if (answer) {
+   
+  } 
+});
+
+function updateProgressBar() {
+  const progressPercentage = (answeredQuestions / totalQuestions) * 100;
+  progressBar.style.width = progressPercentage + "%";
+
+ 
+}
+
+
+
+
+
+
+  submitBtn.addEventListener("click", () => {
+    const answer = getSelected();
+    if (answer) {
+        answeredQuestions++;
+    updateProgressBar();
+      if (answer === quizData[currentQuiz].correct) {
+        score++;
+      }
+      currentQuiz++;
+      if (currentQuiz < quizData.length) {
+        loadQuiz();
+      } else {
+        if(score>22)
+        {
+        quiz.innerHTML = `
+              <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+              <h2>EXCELLENT<h2>
+              <button onclick="myFunc()">Next</button>
+              
+
+            
+          `;}
+          else if(score>10 && score<22)
+          {
+            quiz.innerHTML = `
+              <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+              <h2>EXCELLENT<h2>
+              <button onclick="myFunc()">Next</button>
+              
+          `;}
+          else {
+            quiz.innerHTML = `
+                  <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+                 <h2>try again <h2>
+                  <button onclick="location.reload()">Reload</button>
+              `;}
+      }
+    }else {
+    alert("Please select an answer before submitting.");
+  }
+  
+  
+  });
+  
+  // ===========================
+  //           Watermark
+  // ===========================
+  const DOT_AMOUNT = 40;
+  
+  const createSVG = (width, height, className, childType, childAttributes) => {
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  
+    svg.classList.add(className);
+  
+    const child = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      childType
+    );
+  
+    svg.setAttributeNS(
+      "http://www.w3.org/2000/svg",
+      "viewBox",
+      `0 0 ${width} ${height}`
+    );
+  
+    for (const attr in childAttributes) {
+      child.setAttribute(attr, childAttributes[attr]);
+    }
+  
+    svg.appendChild(child);
+  
+    return { svg, child };
+  };
+  
+  document.querySelectorAll(".generate-button").forEach((button) => {
+    const width = button.offsetWidth;
+    const height = button.offsetHeight;
+  
+    const style = getComputedStyle(button);
+  
+    const { svg, child: circle } = createSVG(width, height, "dots", "circle", {
+      cx: "0",
+      cy: "0",
+      r: "0"
+    });
+  
+    const strokeGroup = document.createElement("div");
+    strokeGroup.classList.add("stroke");
+  
+    const { svg: stroke } = createSVG(width, height, "stroke-line", "rect", {
+      x: "0",
+      y: "0",
+      width: "100%",
+      height: "100%",
+      rx: parseInt(style.borderRadius, 10),
+      ry: parseInt(style.borderRadius, 10),
+      pathLength: "10"
+    });
+  
+    button.appendChild(svg);
+  
+    strokeGroup.appendChild(stroke);
+    strokeGroup.appendChild(stroke.cloneNode(true));
+  
+    button.appendChild(strokeGroup);
+  
+    const timeline = gsap.timeline({ paused: true });
+  
+    for (var i = 0; i < DOT_AMOUNT; i++) {
+      var p = circle.cloneNode(true);
+      svg.appendChild(p);
+  
+      gsap.set(p, {
+        attr: {
+          cx: gsap.utils.random(width * 0.25, width * 0.75),
+          cy: gsap.utils.random(height * 0.5, height * 0.5),
+          r: 0
+        }
+      });
+  
+      var durationRandom = gsap.utils.random(10, 12);
+  
+      var tl = gsap.timeline();
+  
+      tl.to(
+        p,
+        {
+          duration: durationRandom,
+          rotation: i % 2 === 0 ? 350 : -420,
+          attr: {
+            r: gsap.utils.random(0.75, 1.5),
+            cy: -width * gsap.utils.random(1.25, 1.75)
+          },
+          physics2D: {
+            angle: -90,
+            gravity: gsap.utils.random(-4, -8),
+            velocity: gsap.utils.random(10, 25)
+          }
+        },
+        "-=" + durationRandom / 2
+      ).to(
+        p,
+        {
+          duration: durationRandom / 3,
+          attr: {
+            r: 0
+          }
+        },
+        "-=" + durationRandom / 4
+      );
+  
+      timeline.add(tl, i / 3);
+    }
+  
+    svg.removeChild(circle);
+  
+    const finalTimeline = gsap.to(timeline, {
+      duration: 10,
+      repeat: -1,
+      time: timeline.duration(),
+      paused: true
+    });
+  
+    const stars = gsap.to(button, {
+      repeat: -1,
+      repeatDelay: 0.75,
+      paused: true,
+      keyframes: [
+        {
+          "--generate-button-star-2-scale": ".5",
+          "--generate-button-star-2-opacity": ".25",
+          "--generate-button-star-3-scale": "1.25",
+          "--generate-button-star-3-opacity": "1",
+          duration: 0.3
+        },
+        {
+          "--generate-button-star-1-scale": "1.5",
+          "--generate-button-star-1-opacity": ".5",
+          "--generate-button-star-2-scale": ".5",
+          "--generate-button-star-3-scale": "1",
+          "--generate-button-star-3-opacity": ".5",
+          duration: 0.3
+        },
+        {
+          "--generate-button-star-1-scale": "1",
+          "--generate-button-star-1-opacity": ".25",
+          "--generate-button-star-2-scale": "1.15",
+          "--generate-button-star-2-opacity": "1",
+          duration: 0.3
+        },
+        {
+          "--generate-button-star-2-scale": "1",
+          duration: 0.35
+        }
+      ]
+    });
+  
+    button.addEventListener("pointerenter", () => {
+      gsap.to(button, {
+        "--generate-button-dots-opacity": "1",
+        duration: 0.5,
+        onStart: () => {
+          finalTimeline.restart().play();
+          setTimeout(() => stars.restart().play(), 500);
+        }
+      });
+    });
+  
+    button.addEventListener("pointerleave", () => {
+      gsap.to(button, {
+        "--generate-button-dots-opacity": "0",
+        "--generate-button-star-1-opacity": ".25",
+        "--generate-button-star-1-scale": "1",
+        "--generate-button-star-2-opacity": "1",
+        "--generate-button-star-2-scale": "1",
+        "--generate-button-star-3-opacity": ".5",
+        "--generate-button-star-3-scale": "1",
+        duration: 0.15,
+        onComplete: () => {
+          finalTimeline.pause();
+          stars.pause();
+        }
+      });
+    });
+  });
+
+
+
+
+  </script>
+
+</body>
